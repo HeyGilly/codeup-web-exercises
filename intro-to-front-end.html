@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Design by HeyGilly ">
+    <meta name="description" content="  Day01WK01: This is going to be an introduction to HTML, CSS, & JS  ">
+    <title>Intro To Front End</title>
+    <!-- Favicon Image-->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- Personal Style Sheet-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+        body{
+            margin: 0 auto;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            height: 100%;
+            width: 100%;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        p {
+            border: 2px solid #f5eeee;
+            background-color: #fcf8f8;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 3rem auto;
+            width: 40vw;
+            height: fit-content;
+            box-shadow: 2px 2px 5px #fcf8f8;
+            line-height: 24px;
+
+        }
+        p:nth-child(2){
+            background-color: midnightblue;
+            color: #f5eeee;
+        }
+        button{
+            height: 48px;
+            width: 84px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        .hidden{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<p id="hideable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur cupiditate deleniti dignissimos doloribus ducimus exercitationem facilis incidunt labore, neque officiis quasi quia, quos repellat rerum
+    similique sunt
+    vitae voluptatibus!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur cupiditate deleniti dignissimos doloribus ducimus exercitationem facilis incidunt labore, neque officiis quasi quia, quos repellat rerum similique sunt vitae voluptatibus!</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur cupiditate deleniti dignissimos doloribus ducimus exercitationem facilis incidunt labore, neque officiis quasi quia, quos repellat rerum similique sunt vitae voluptatibus!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur cupiditate deleniti dignissimos doloribus ducimus exercitationem facilis incidunt labore, neque officiis quasi quia, quos repellat rerum similique sunt vitae voluptatibus!</p>
+
+<button id="toggle">Push me!</button>
+
+
+</body>
+    <script>
+        const toggleButton = document.getElementById('toggle');
+        const hideParagraph = document.getElementById('hideable');
+
+        toggleButton.onclick = function() {
+            let theClass = hideParagraph.getAttribute("class");
+            if( theClass == "hidden"){
+                hideParagraph.removeAttribute("class");
+                alert('YEEEHHAAA ITS BACK!');
+            } else {
+            hideParagraph.setAttribute('class', "hidden");
+                alert('OH NO! You took out the paragraph!');
+            }
+        }
+    </script>
+</html>
