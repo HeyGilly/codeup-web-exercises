@@ -135,6 +135,24 @@
     }
 
 
+    // A product offer can be applied only if a person buys more than 2 items, and the offer has not expired.
+    // Premium members do not need to buy a specific amount of products.
+    let productQuality = 3;
+    let premiumMember = false;
+    let moreThan2 = productQuality > 2;
+    let offerExpired = new Date('02/01/2022').toLocaleDateString();
+
+    const date = new Date();
+    console.log(date.toLocaleDateString());
+    const formula = date.toLocaleDateString() !== offerExpired;
+    console.log(date.toLocaleDateString() === offerExpired);
+
+    if (moreThan2 && (formula || premiumMember)) {
+        console.log('you are gonna be saving cause the Expired date is ' + offerExpired +
+            ' and you have '+productQuality+ ' items.')
+    } else {
+        console.log('could have saved!')
+    }
 
 
     console.log('------------------')
