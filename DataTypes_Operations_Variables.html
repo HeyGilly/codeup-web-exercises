@@ -147,9 +147,9 @@
     const formula = date.toLocaleDateString() !== offerExpired;
     console.log(date.toLocaleDateString() === offerExpired);
 
-    if (moreThan2 && formula || premiumMember) {
+    if (moreThan2 && (formula || premiumMember)) {
         console.log('you are gonna be saving cause the Expired date is ' + offerExpired +
-            ' and you have more then 2 items.')
+            ' and you have '+productQuality+ ' items.')
     } else {
         console.log('could have saved!')
     }
