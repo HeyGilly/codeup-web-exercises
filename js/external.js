@@ -53,11 +53,31 @@ if (containerHoldingBooleanValue && passwordUsername && usernameNew){
 
 
 
+// Exercise #3
+// You have rented some movies for your kids:
+// The little mermaid (for 3 days), Brother Bear (for 5 days, they love it),
+// and Hercules (1 day, you don't know yet if they're going to like it).
+// If price for a movie per day is $3, how much will you have to pay?
+
+alert('EXERCISE #3: Welcome to Gilly\'s Movie Rental');
+var littleMermaid = prompt("How many days would you like to rent The Little Mermaid? ")
+var brotherBear = prompt("How many days would you like to rent Brother Bear? ")
+var hercules = prompt("How many days would you like to rent Hercules?")
+alert("thank you let me get your total...");
+
+var pricePerMoviePerDay = 3;
+
+var totalPrice = (littleMermaid * pricePerMoviePerDay) + (brotherBear * pricePerMoviePerDay) + (hercules * pricePerMoviePerDay);
+
+alert("you total price for the movies is: " + "$"+ totalPrice.toFixed(2) + " Will that be cash or card?");
+
+
+
 // Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour.
 // Google pays $400, Amazon $380, and Facebook $350.
 // How much will you receive in payment for this week?
 // You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
-
+alert('EXERCISE #4: Welcome to Gilly\'s weekly pay!');
 let google = 400;
 let amazon = 380;
 let facebook = 350;
