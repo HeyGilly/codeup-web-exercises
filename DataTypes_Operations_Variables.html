@@ -103,7 +103,7 @@
     //---- You have rented some movies for your kids:
     // The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it).
     // If price for a movie per day is $3, how much will you have to pay?
-    let littleMermaid = 3;
+    let littleMermaid = 3; // days used
     let brotherBear = 5;
     let hercules = 1;
     const pricePerDay = 3;
@@ -135,12 +135,27 @@
     }
 
 
-    //A product offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
+
+
+    console.log('------------------')
+    console.log('Exercise #4');
+    // the password must not include the username
+    // neither the username or password can start or end with whitespace
+    var username = 'codeup';
+    var password = 'notastrongpassword';
+
+    let containerHoldingBooleanValue = (password.length >= 5 && username.length < 20);
+    let passwordUsername = (-1 == password.search(username));     // One way to do it
+    passwordUsername = !password.includes(username);              // Another way to do it
+    let usernameNew = !username.endsWith(" ") && !password.endsWith(' ') && !username.startsWith(" ") && !password.startsWith(" ")
+    !password.endsWith(' ') ;
+
+    console.log(containerHoldingBooleanValue && passwordUsername && usernameNew);
+
 
 
 
     console.log('------------------')
-
 
     console.log('Tank Exercise');
 
