@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <meta name="creator" content="Nicholas 'Gilly' Gilmore">
+        <meta name="subject" content="Codeup: DataTypes, Operations, and Variables">
+        <meta name="description" content="Practice with data types, operations, and variables ">
+
+        <title>DataTypes, Operations, and Variables</title>
+    </head>
+    <body>
+
+    </body>
+
+<script>
+
+    console.log('Exercise #1')
+    // #1.1 what is the value of a, b, and c?
+    let a = 1;
+    let b = a++;
+    let c = ++a;
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+
+    //#1.2
+    let d = "hello";
+    let e = false;
+
+    let z = d++;
+    let y = e++;
+    console.log(z);
+    console.log(y);
+
+    //#1.3
+    let perplexed; // perplexed is undefined (no value is assigned)
+    let f = perplexed + 2;
+    console.log(f);
+
+    //#1.4
+    let price = 2.7;
+    console.log('The price is $' + price.toFixed(2));
+
+
+    console.log('------------------')
+    //#1.5
+    console.log(isNaN(0)); // false
+    console.log(isNaN(1));   //false
+    console.log(isNaN(""));  //false
+    console.log(isNaN("string"));
+    console.log(isNaN("0"));
+    console.log(isNaN("1"));
+    console.log(isNaN("3.145"));
+    console.log(isNaN(Number.MAX_VALUE));
+    console.log(isNaN(Infinity));
+    console.log(isNaN("true"));  //true
+    console.log(isNaN(true));
+    console.log(isNaN("false")); //true
+    console.log(isNaN(false));
+    console.log('------------------')
+
+
+    // #1.6
+    console.log(!true);
+    console.log(!false);
+    console.log(!!true);
+    console.log(!!false);
+    console.log(!!0);
+    console.log(!!-0);
+    console.log(!!1);
+    console.log(!!-1);
+    console.log(!!0.1);
+    console.log(!!"hello");
+    console.log(!!"");
+    console.log(!!'');
+    console.log(!!"false");
+    console.log(!!"0");
+    console.log('------------------')
+
+    console.log('Exercise #2');
+    let sample = "Hello Codeup";
+    console.log('There is ' + sample.length + ' letters.');
+    console.log('Uppercase: ' + sample.toUpperCase() + ' Lowercase: ' + sample.toLowerCase());
+    //--- Update the variable sample via concatenation so that it contains "Hello Codeup Students".
+    let updatedWord = sample + " Students."
+    console.log(updatedWord);
+    //--- Replace "Students" with "Class".
+    let updatedNewWord = updatedWord.replace('Students', 'Class');
+    console.log(updatedNewWord);
+    //--- Find the index of "c" using .indexOf(). What do you observe?
+    console.log('c: ' + updatedNewWord.indexOf('c'));
+    console.log('C: ' + updatedNewWord.indexOf('C'));
+    //---Retrieve a substring that contains only the word "Codeup" by using indexOf() and substring().
+    console.log(updatedNewWord.substring(6,12));
+    console.log(updatedNewWord.substring(updatedNewWord.indexOf('C'), updatedNewWord.length - 7));
+    console.log('------------------')
+
+    console.log('Exercise #3');
+
+    //---- You have rented some movies for your kids:
+    // The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it).
+    // If price for a movie per day is $3, how much will you have to pay?
+    let littleMermaid = 3; // days used
+    let brotherBear = 5;
+    let hercules = 1;
+    const pricePerDay = 3;
+    let totalMovies = littleMermaid + brotherBear +  hercules;
+    let totalAmount =  totalMovies * pricePerDay;
+    console.log('The total amount for ' + totalMovies + ' movies will be $' + totalAmount.toFixed(2));
+
+
+    // Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour.
+    // Google pays $400, Amazon $380, and Facebook $350.
+    // How much will you receive in payment for this week?
+    // You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
+
+    let google = 400;
+    let amazon = 380;
+    let facebook = 350;
+    let googleHours = 6;
+    let amazonHours = 4;
+    let facebookHours = 10;
+    const paymentThisWeek = (googleHours * google) + (amazonHours + amazon) * (facebook * facebookHours);
+    console.log('Plan to get payed this amount: $' + paymentThisWeek.toLocaleString("en-US") +'.');
+
+
+    //A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
+   let classNumbers = false;
+   let conflictSchedule = false;
+    if ( !classNumbers && !conflictSchedule){
+        console.log("Welcome to class your schedule will work!");
+    }
+
+
+
+
+    console.log('------------------')
+    console.log('Exercise #4');
+    // the password must not include the username
+    // neither the username or password can start or end with whitespace
+    var username = 'codeup';
+    var password = 'notastrongpassword';
+
+    let containerHoldingBooleanValue = (password.length >= 5 && username.length < 20);
+    let passwordUsername = (-1 == password.search(username));     // One way to do it
+    passwordUsername = !password.includes(username);              // Another way to do it
+    let usernameNew = !username.endsWith(" ") && !password.endsWith(' ') && !username.startsWith(" ") && !password.startsWith(" ")
+    !password.endsWith(' ') ;
+
+    console.log(containerHoldingBooleanValue && passwordUsername && usernameNew);
+
+
+
+
+    console.log('------------------')
+
+    console.log('Tank Exercise');
+
+    let tankFull = false;
+    let safetyCheckComplete = false;
+
+    let clearedForTakeOff = (tankFull && safetyCheckComplete);
+    console.log(clearedForTakeOff);
+
+    tankFull = true;
+    safetyCheckComplete = true;
+    console.log(clearedForTakeOff); // stays the same because the formula is still above the change
+
+    clearedForTakeOff = (tankFull && safetyCheckComplete);// Now it will work because i changed the value of this formula (variable).
+    console.log(clearedForTakeOff);
+
+
+
+
+</script>
+</html>
+
+
+
+
