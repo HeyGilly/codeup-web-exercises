@@ -8,6 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
+function sayHello (savedName){
+    return "Welcome to my Function page " +savedName+ "!";
+}
+document.getElementById('Exercise1').innerText  = sayHello("Codeup");
 
 
 
