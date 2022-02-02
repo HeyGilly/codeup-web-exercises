@@ -7,6 +7,8 @@
 
 ### The Process
 - WeekOne: GIT, Github & Data types
+- WeekTwo: JavaScript I, Practice Assessment, Functions
+  
 
 ### Skills Acquired
 - GIT
