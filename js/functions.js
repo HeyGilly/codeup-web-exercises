@@ -111,3 +111,8 @@ document.getElementById('Exercise6').innerText = "$" + calculateTip(TotalBill, p
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
+function applyDiscount(price, discountPercentage){
+    return price - ( price * discountPercentage).toFixed(2);
+}
+
+document.getElementById('Exercise7').innerText = "$" + applyDiscount(45.99, 0.12) // 40.4712
