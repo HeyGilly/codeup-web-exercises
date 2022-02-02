@@ -23,12 +23,22 @@ document.getElementById('Exercise1').innerText  = sayHello("Codeup");
  * console.log 'helloMessage' to check your work
  */
 
+
+let helloMessage = sayHello("Nick");
+document.getElementById('Exercise2').innerText  = helloMessage;
+console.log(helloMessage);
+
+
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+
+let myName = "NICHOLAS GILMORE";
+document.getElementById('Exercise3').innerText  = sayHello(myName);
+console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -51,6 +61,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
+
+
+
+
 
 /**
  * TODO:
