@@ -63,7 +63,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(num1 ){
-    return num1 % 2 ==0;
+    return num1 === 2;
 }
 document.getElementById('Exercise4').innerText = "If the Number is even its will be true, or false for odd. The" + " Number is is " +random+ " and it's " + isTwo(random) // returns
 
