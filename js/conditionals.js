@@ -22,18 +22,18 @@
  * console.logging the function's return value
  */
 
-function analyzeColor(stringColor){
-
-    if (stringColor === "blue"){
-        return "blue is the color of the sky";
-    } else if (stringColor === "red"){
-        return "Strawberries are red";
-    }else if (stringColor === "silver"){
-        return "Go Spurs Go";
-    }else{
-        return " I did not think of that color " + stringColor;
-    }
-}
+// function analyzeColor(stringColor){
+//
+//     if (stringColor === "blue"){
+//         return "blue is the color of the sky";
+//     } else if (stringColor === "red"){
+//         return "Strawberries are red";
+//     }else if (stringColor === "silver"){
+//         return "Go Spurs Go";
+//     }else{
+//         return " I did not think of that color " + stringColor;
+//     }
+// }
 
 console.log(analyzeColor("blue"));
 
@@ -60,9 +60,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
+function analyzeColor(stringColor){
 
+    switch (stringColor){
+        case "blue":
+            return "blue is the color of the sky";
+            break;
+        case "red":
+            return "Strawberries are red";
+            break;
+        case "silver":
+            return "Go Spurs Go";
+            break;
+        default:
+            return "I did not think of the color " + stringColor;
+    }
 
+}
 
+console.log(analyzeColor("silver"));;
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
