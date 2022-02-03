@@ -21,21 +21,20 @@
 //  * Test your function by passing various string literals to it and
 //  * console.logging the function's return value
 //  */
-//
-// // function analyzeColor(stringColor){
-// //
-// //     if (stringColor === "blue"){
-// //         return "blue is the color of the sky";
-// //     } else if (stringColor === "red"){
-// //         return "Strawberries are red";
-// //     }else if (stringColor === "silver"){
-// //         return "Go Spurs Go";
-// //     }else{
-// //         return " I did not think of that color " + stringColor;
-// //     }
-// // }
-//
-// console.log(analyzeColor("blue"));
+
+// function analyzeColor(stringColor){
+//     if (stringColor === "blue"){
+//         return "blue is the color of the sky";
+//     } else if (stringColor === "red"){
+//         return "Strawberries are red";
+//     }else if (stringColor === "silver"){
+//         return "Go Spurs Go";
+//     }else{
+//         return " I did not think of that color " + stringColor;
+//     }
+// }
+
+console.log(analyzeColor("blue"));
 //
 //
 //
@@ -65,20 +64,17 @@ function analyzeColor(stringColor){
     switch (stringColor){
         case "blue":
             return "blue is the color of the sky";
-            break;
         case "red":
             return "Strawberries are red";
-            break;
         case "silver":
             return "Go Spurs Go";
-            break;
         default:
             return "I did not think of the color " + stringColor;
     }
 
 }
 
-console.log(analyzeColor("silver"));;
+console.log(analyzeColor("silver"));
 // /**
 //  * TODO:
 //  * Prompt the user for a color when the page loads, and pass the input from the
@@ -112,15 +108,15 @@ alert(analyzeColor(userInputFavColor));
 //  */
 
  function WalmartLuckyNumber(luckyNumber){
-    if (luckyNumber == 0){
+    if (luckyNumber === 0){
          return " Sorry no discount! Your price is: $"+luckyNumber;
-     } else if (luckyNumber == 1){
+     } else if (luckyNumber === 1){
          return "You are lucky number "+luckyNumber+"! Congrats you get 10% off";
-     }else if (luckyNumber == 2){
+     }else if (luckyNumber === 2){
          return "You are lucky number "+luckyNumber+"! Congrats you get 25% off";
-     }else if (luckyNumber == 3){
+     }else if (luckyNumber === 3){
          return "You are lucky number "+luckyNumber+"! Congrats you get 35%off";
-     }else if (luckyNumber == 4){
+     }else if (luckyNumber === 4){
          return "You are lucky number "+luckyNumber+"! Congrats you get you get 50% off";
      }else{
          return "You are lucky number "+luckyNumber+"! Congrats you get everything free!!!!!";
@@ -128,7 +124,7 @@ alert(analyzeColor(userInputFavColor));
 
  }
 
- console.log(WalmartLuckyNumber(1));;
+ console.log(WalmartLuckyNumber(1));
 //
 // /**
 //  * TODO:
@@ -140,22 +136,21 @@ alert(analyzeColor(userInputFavColor));
 //  */
 // // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
-var userTotalBill = userTotalBill = prompt("What is your total Bill?");
+var userTotalBill = prompt("What is your total Bill?");
 function calculateTotal(userTotalBill, luckyNumber){
     var discountPrice;
-    if (luckyNumber == 0){
-
+    if (luckyNumber === 0){
         return " Sorry no discount! Your Unlucky NUmber is: $"+luckyNumber+ "! Your price is "+userTotalBill;
-    } else if (luckyNumber == 1){
+    } else if (luckyNumber === 1){
         discountPrice = userTotalBill-(userTotalBill * .10);
         return "You are lucky number "+luckyNumber+"! Congrats you get 10% off! Your original price: $"+userTotalBill+". Your new price: $"+discountPrice;
-    }else if (luckyNumber == 2){
+    }else if (luckyNumber === 2){
         discountPrice = userTotalBill-(userTotalBill * .25);
         return "You are lucky number "+luckyNumber+"! Congrats you get 25% off! Your original price: $"+userTotalBill+". Your new price: $"+discountPrice;
-    }else if (luckyNumber == 3){
+    }else if (luckyNumber === 3){
         discountPrice = userTotalBill-(userTotalBill * .35);
         return "You are lucky number "+luckyNumber+"! Congrats you get 35% off! Your original price: $"+userTotalBill+". Your new price: $"+discountPrice;
-    }else if (luckyNumber == 4){
+    }else if (luckyNumber === 4){
         discountPrice = userTotalBill-(userTotalBill * .50);
         return "You are lucky number "+luckyNumber+"! Congrats you get 50% off! Your original price: $"+userTotalBill+". Your new price: $"+discountPrice;
     }else {
@@ -188,32 +183,31 @@ console.log(calculateTotal(userTotalBill,luckyNumber ));
  * HINT: The way we prompt for a value could be improved
  */
 
-
-//-- Create if odd or even
-function oddEven(numbersInput){
-    console.log((numbersInput % 2 == 0 ? "Your " + numbersInput + " is Even!" : "Your " + numbersInput + " is Odd!"));;
-}
-//-- Create plus 100
-function plus100(numbersInput){
-    console.log(("Your " + numbersInput + " is " + (parseInt(numbersInput) + 100) + " plus 100. !"));;
-}
-//-- Create positive or negative
-function positiveNegative(numbersInput){
-    console.log((numbersInput >= 0? "Your " + "Your "+numbersInput+" is a positive number!" : "Your "+numbersInput+" is a negative number!"));
-}
+    //-- Create if odd or even
+    function oddEven(numbersInput){
+        return numbersInput % 2 === 0 ? "Your " +numbersInput + " is Even!" : "Your " + numbersInput + " is Odd!";
+    }
+    //-- Create plus 100
+    function plus100(numbersInput){
+        return "Your " + numbersInput + " is " + (parseInt(numbersInput) + 100) + " plus 100.";
+    }
+    //-- Create positive or negative
+    function positiveNegative(numbersInput){
+        return numbersInput >= 0 ? "Your "+numbersInput+" is a positive number!" : "Your "+numbersInput+" is a negative number!";
+    }
 
     var anwser = confirm("Would you like to enter a number?");          //Ask user if they would like to add a number
-    //--- True or false, if you want to play or not
-    if (anwser){
-        var numbersInput = prompt("What is your nUmber?");      //Users Numbers
-        if (isNaN(numbersInput)){                                       //Checks to see if Not a Number
-            alert('Thats not a number!!!');
-        } else {
-            oddEven(numbersInput);                                      //Checks to see if odd or even
-            plus100(numbersInput);                                      //Adds additional 100 to input
-            positiveNegative(numbersInput);                             //Checks to see if positive or negative
-        }
-    }else{
-        alert( "GameOVer!");                                            //If they chose cancel they will get alert
-}
 
+    //--- True or false, if you want to play or not
+    if (anwser) {
+        var numbersInput = prompt("What is your nUmber?");      //Users Numbers
+        if (isNaN(numbersInput)) {                                       //Checks to see if Not a Number
+            alert('That\'s not a number!!!');
+        } else {
+           alert(oddEven(numbersInput));                                      //Checks to see if odd or even
+            alert(plus100(numbersInput));                                   //Adds additional 100 to input
+            alert(positiveNegative(numbersInput));                            //Checks to see if positive or negative
+        }
+    } else {
+        alert("GameOVer!");                                            //If they chose cancel they will get alert
+    }
