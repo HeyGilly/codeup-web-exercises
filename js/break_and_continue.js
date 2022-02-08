@@ -4,6 +4,7 @@ for(var i= 1;i<50;i+=2){
     if (promptInput == i){
         document.write("Yikes! it is your Number " + i+ '<br>');
         continue;
+        // break;
     } else{
         document.write(i +'<br>')
     }
