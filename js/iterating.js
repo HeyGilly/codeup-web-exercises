@@ -65,5 +65,7 @@
         return arrayExample[arrayExample.length-1];
     }
 
-    console.log(first([1, 2, 3, 4, 5]) )
+    console.log(first(arrayExample))
+    console.log(second(arrayExample))
+    console.log(last(arrayExample))
 })();
