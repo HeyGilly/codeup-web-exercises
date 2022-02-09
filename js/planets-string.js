@@ -29,6 +29,13 @@
     * list. You will need an opening AND closing <ul> tags around the entire
     * string, and <li> tags around each planet.
     */
+    console.log('----------------');
+    document.write('<br>----------------<br>');
+
+    console.log(planetsArray);
+
+    var output = '<ul><li>' + planetsArray.join('</li><li>')+'</li></ul>';
+    document.write(output);
 
 
 })();
