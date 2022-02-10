@@ -1,6 +1,6 @@
 Please spend the next 10 minutes trying to answer the following questions using the curriculum and Google...
 - What is a JS object?
-    --- Javascript objects are key and values also known as propeties and methods.
+    --- Javascript objects are a collection of keys and values also known as properties and methods.
 
 
 - What is the practical difference between these two statements?
