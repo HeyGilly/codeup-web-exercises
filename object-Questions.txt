@@ -1,6 +1,7 @@
 Please spend the next 10 minutes trying to answer the following questions using the curriculum and Google...
 - What is a JS object?
     --- Javascript objects are a collection of keys and values also known as properties and methods.
+    --- (instructor)
 
 
 - What is the practical difference between these two statements?
@@ -8,9 +9,11 @@ Please spend the next 10 minutes trying to answer the following questions using 
   someObject[‘someProperty’] = 4;
 
    --- one is a dot notation and one is an array notation.
+   --- (instructor)
 
 - Are JS objects mutable?
     -- yes object and arrays are mutable
+    --- (instructor)
 
 
 - Given the following code, what will be logged and why?
@@ -20,12 +23,16 @@ Please spend the next 10 minutes trying to answer the following questions using 
   console.log(objB.a);
 
         --- because objA.a is declared to be 7.
+        --- (instructor)
 
 - Is it possible to nest another object inside of an object?
     --- yes it is possible
+    --- (instructor)
 
 - Is it possible to nest an array in an object?
     --- yes it is possible
+    --- (instructor)
 
 - What does ‘this’ refer to within an object method in JS?
     ---this is refering to the object it is within. Itself
+    --- (instructor)
