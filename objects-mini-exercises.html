@@ -25,7 +25,8 @@
     //     - datesOfPreviousSips (use an array of strings)
     // - isOpen
     // Define your objects using both literal syntax to create all properties and values at once and also try defining empty objects and assign property values in separate statements using the dot notation.
-    const EXPIRE = new Date("Feb 13, 2022");
+    const EXPIRE = new Date("Feb 13, 2022 00:10:00").toDateString();
+
     var beverage = {
         brandName: 'pepsi',
         type: 'bottle',
@@ -35,14 +36,70 @@
         datesOfPreviousSips: 10,
         isOpen: true
     }
+    var beverage1 = {
+        brandName: 'coke',
+        type: 'can',
+        volumeInLiters: 20,
+        priceInCents: 120,
+        expirationDate: EXPIRE,
+        datesOfPreviousSips: 20,
+        isOpen: true
+    }
+    var beverage2 = {
+        brandName: 'Mr. Pip',
+        type: 'Glass Bottle',
+        volumeInLiters: 20,
+        priceInCents: 120,
+        expirationDate: EXPIRE,
+        datesOfPreviousSips: 20,
+        isOpen: true
+    }
+
+    console.log(beverage);
+    console.log('---------------');
+    console.log(beverage1);
+    console.log('---------------');
+    console.log(beverage2);
+
+    function Soda(name, whatType, volumeLiters, priceCents, expiration, previousSips,open) {
+        this.brandName = name;
+        this.type = whatType;
+        this.volumeInLiters = volumeLiters;
+        this.priceInCents = priceCents;
+        this.expirationDate = expiration;
+        this.datesOfPreviousSips = previousSips;
+        this.isOpen = open;
+
+    }
+
+    const Redbull = new Soda("Red Bull", "Can", 12, '2.99', EXPIRE, 20, 'open');
+
+    document.write(Redbull.brandName + ' is your favorite drink! You usually drink a ' + Redbull.volumeInLiters +
+        'oz '+Redbull.type+'.<br> it will just cost you $'+Redbull.priceInCents+'. just know the red bull will expire on '+Redbull.expirationDate+'.' +
+        ' <br>Just letting you know and your '+Redbull.brandName+' is '+Redbull.isOpen+' as well. Good day!');
 
 
 
 
-
-
-
-
+  //   -- Mini Exercise 2
+  //   var users = [
+  //       {
+  //           givenName: 'Sam',
+  //           age: 21
+  //       },
+  //       {
+  //           givenName: 'Cathy',
+  //           age: 34
+  //       },
+  //       {
+  //           givenName: 'Karen',
+  //           age: 43
+  //       }
+  //   ];
+  //   1. Log the names of all users in a single console log separated by spaces. // output = “Sam Cathy Karen”
+  //   2. Change the names of all users to “John Doe”
+  // 3. Increase the current age of all users by 1
+  //   Can you accomplish each step using iteration? (edited)
 
 
 
