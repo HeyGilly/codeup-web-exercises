@@ -27,6 +27,10 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+        Person.sayHello = function (){
+            return 'Hello from ' +this.firstName+' '+this.lastName;
+        }
+    console.log(Person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -42,11 +46,23 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    for (var xy = 0;xy < shoppers.length; xy++){
+        // console.log(shoppers[xy].name);
+        if (shoppers[xy].amount < 200){
+            console.log( "I'm sorry to inform you that you are not able to use our discount.\n" +
+                " You have to spend a min of $200 and you will receive BIG savings. \n" +
+                " Your price is $"+shoppers[xy].amount.toFixed(2));
+        }
+        console.log("Congrats! For spending over $200 today. \n H-E-B is going to pay your back by taking off 12%. \n" +
+            " Your old Price was $"+shoppers[xy].amount+'.\n Your new price is $'+ (shoppers[xy].amount - (shoppers[xy].amount * .12)).toFixed(2))
+    }
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
