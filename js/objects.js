@@ -141,13 +141,6 @@
     // console.log(books[0].author.firstName) // "Douglas"
     // console.log(books[0].author.lastName) // "Adams"
 
-    function booksBonus(bookTitle, fName, lName) {
-        this.title = bookTitle;
-        this.firstName = fName;
-        this.lastName = lName;
-    }
-    const Garfield = new booksBonus("Garfield", "Jim", 'Davis');
-     console.log(Garfield.title +' is by '+Garfield.firstName +" "+ Garfield.lastName)
 
 
     /**
@@ -196,6 +189,13 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(bookTitle, fName, lName) {
+        this.title = bookTitle;
+        this.firstName = fName;
+        this.lastName = lName;
+        return Garfield.title +' is by '+Garfield.firstName +" "+ Garfield.lastName;
+    }
+    const Garfield = new createBook("Garfield", "Jim", 'Davis');
 
 
 
