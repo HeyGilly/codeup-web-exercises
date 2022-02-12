@@ -193,7 +193,7 @@
         this.title = bookTitle;
         this.firstName = fName;
         this.lastName = lName;
-        return Garfield.title +' is by '+Garfield.firstName +" "+ Garfield.lastName;
+        return this.title +' is by '+ this.firstName +" "+ this.lastName;
     }
     const Garfield = new createBook("Garfield", "Jim", 'Davis');
 
