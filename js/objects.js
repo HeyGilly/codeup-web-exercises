@@ -18,6 +18,8 @@
     }
          console.log(Person.firstName, "Rick") // "Rick"
          console.log(Person.lastName, "Sanchez") // "Sanchez"
+
+    console.log('---------------');
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -31,6 +33,9 @@
             return 'Hello from ' +this.firstName+' '+this.lastName;
         }
     console.log(Person.sayHello());
+
+
+    console.log('---------------');
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -52,17 +57,25 @@
         {name: 'George', amount: 320}
     ];
 
-    for (var xy = 0;xy < shoppers.length; xy++){
-        // console.log(shoppers[xy].name);
-        if (shoppers[xy].amount < 200){
-            console.log( "I'm sorry to inform you that you are not able to use our discount.\n" +
+    for (var xy = 0;xy < shoppers.length; xy++) {
+        const originalAmount = shoppers[xy].amount
+        var noDiscount = originalAmount.toFixed(2);
+        var yesDiscount = (originalAmount- (originalAmount * .12)).toFixed(2);
+
+        originalAmount < 200
+            ?
+            console.log("I'm sorry to inform you that you are not able to use our discount.\n" +
                 " You have to spend a min of $200 and you will receive BIG savings. \n" +
-                " Your price is $"+shoppers[xy].amount.toFixed(2));
-        }
-        console.log("Congrats! For spending over $200 today. \n H-E-B is going to pay your back by taking off 12%. \n" +
-            " Your old Price was $"+shoppers[xy].amount+'.\n Your new price is $'+ (shoppers[xy].amount - (shoppers[xy].amount * .12)).toFixed(2))
+                " Your price is $" + noDiscount)
+            :
+            console.log("Congrats! For spending over $200 today. \n" +
+                " H-E-B is going to pay your back by taking off 12%. \n" +
+                " Your old Price was $" + originalAmount + '.\n' +
+                ' Your new price is $' + yesDiscount)
+
     }
 
+    console.log('---------------');
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -76,6 +89,66 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    var books = [
+        {
+        title: 'Garfield',
+            author:{
+                firstName: "Jim",
+                lastName: 'Davis'
+            }
+        },
+        {
+            title: 'The Giving Tree',
+            author:{
+                firstName: "Shel",
+                lastName: 'Silverstein'
+            }
+        },
+        {
+            title: '1984',
+            author:{
+                firstName: "George",
+                lastName: 'Orwell'
+            }
+        },
+        {
+            title: 'The Road',
+            author:{
+                firstName: "Cormac",
+                lastName: 'McCarthy'
+            }
+        },
+        {
+            title: 'Fahrenheit 451',
+            author:{
+                firstName: "Ray",
+                lastName: 'Bradbury'
+            }
+        },
+    ];
+
+    console.log('Welcome to the Books Store! We have these books on shelf: ');
+    books.forEach(expressYourself);
+    function expressYourself(item){
+       console.log(item.title + " by " + item.author.firstName+" "+item.author.lastName)
+   }
+
+    console.log('---------------');
+
+
+    // console.log(books[0].title) // "The Salmon of Doubt"
+    // console.log(books[0].author.firstName) // "Douglas"
+    // console.log(books[0].author.lastName) // "Adams"
+
+    function booksBonus(bookTitle, fName, lName) {
+        this.title = bookTitle;
+        this.firstName = fName;
+        this.lastName = lName;
+    }
+    const Garfield = new booksBonus("Garfield", "Jim", 'Davis');
+     console.log(Garfield.title +' is by '+Garfield.firstName +" "+ Garfield.lastName)
+
 
     /**
      * TODO:
@@ -102,6 +175,16 @@
      *      ...
      */
 
+
+    for(var xy = 0; xy < books.length;xy++){
+        document.write(
+            'Book #'+(xy + 1) + '<br>' +
+            "Title: " + books[xy].title + '<br>' +
+            "Author: " + books[xy].author.firstName +' '+ books[xy].author.lastName + '<br><br>'
+        );
+    }
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -112,5 +195,8 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+
 
 })();
