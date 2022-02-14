@@ -177,6 +177,26 @@
         );
     }
 
+//---- Bonus exercise
+
+    for (var i = 0; i < books.length; i++) {
+        var bookMsg = 'Book # ' + (i + 1) + '\n' +
+            'Title: ' + books[i].title + '\n' +
+            'Author: ' + books[i].author.firstName + ' ' + books[i].author.lastName + '\n' +
+            '---';
+        console.log(bookMsg);
+    }
+
+books.forEach(function (book, index){
+    var bookMsg = 'Book # ' + (index + 1) + '\n' +
+                    'Title: ' + book[index].title + '\n' +
+                    'Author: ' + book[index].author.firstName + ' ' +
+                     book[index].author.lastName + '\n'
+})
+
+
+
+
 
     /**
      * Bonus:
