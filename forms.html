@@ -17,11 +17,43 @@
         <form method="POST" action="https://request-inspector.glitch.me/" autocomplete="none">
             <fieldset>
                 <legend>Contact Us</legend>
+                <!--Email-->
+                <label for="email">Email:</label>                       <!--title for input email -->
+                <input type="email" name="email" id="email" required>            <!-- input for email, for and ID match -->
+                <!--Password-->
+                <label for="password" >Password:</label>
+                <input type="password" name="password" id="password" required minlength="6">
+                <!--Bio-->
+                <label for="bio">Bio:</label>
+                <textarea name="bio" id="bio"></textarea>
+                <!--Radio Checks-->
+                <div class="checks">
+                    <p>How did you hear about us?</p>
+                    <input type="radio" name="howYouHearAboutUs" id="billBoard" value="billboard">
+                    <label for="billBoard">BillBoard</label>
+                    <input type="radio" name="howYouHearAboutUs" id="radioAdvertisement" value="radio advertisement">
+                    <label for="radioAdvertisement">Radio Advertisement</label>
+                    <input type="radio" name="howYouHearAboutUs" id="internetAdvertisement" value="internetAdvertisement">
+                    <label for="internetAdvertisement">Internet Advertisement</label>
+                    <input type="radio" name="howYouHearAboutUs" id="other" value="other">
+                    <label for="other">Other</label>
+                </div>
 
+                <label for="browser">What web browswer do you use:</label>
+                <select name="browser" id="browser">
+                    <option value="chrome">Chrome</option>
+                    <option value="brave">Brave</option>
+                    <option value="Safari">Safari</option>
+                    <option value="explorer">Explorer</option>
+                </select>
 
+                <input type="submit" id="submit" value="Submit!!!">
 
             </fieldset>
         </form>
+
+
+
 
 
 
