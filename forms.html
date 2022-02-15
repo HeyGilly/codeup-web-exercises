@@ -10,44 +10,85 @@
 
         <title>Register With Us</title>
     </head>
-    <body>
+    <body style="background-color: royalblue;">
 
 
 
         <form method="POST" action="https://request-inspector.glitch.me/" autocomplete="none">
-            <fieldset>
-                <legend>Contact Us</legend>
+            <fieldset style="
+                  width: 20vw;
+                  position: absolute;
+                  top: 5%;
+                  left: 30%;
+                  margin:0 auto;
+                  padding: 2em;
+                  border-radius: 20px;
+                  background-color: #c3ccd4;
+                  border: 2rem solid white;
+                  box-shadow: 0 20px 70px #1e1e1e;
+                  font-size: 1.5em;
+                  color:#1e1e1e;
+                ">
                 <!--Email-->
-                <label for="email">Email:</label>                       <!--title for input email -->
-                <input type="email" name="email" id="email" required>            <!-- input for email, for and ID match -->
+                <label for="email">Email:</label><br>                                  <!--title for input email-->
+                <input type="email" name="email" id="email" placeholder="email" required
+                       style="
+                            width:430px;
+                            height: 40px;
+                            font-size: .8em;
+                    ">
+                <br>
+                <br>
                 <!--Password-->
-                <label for="password" >Password:</label>
-                <input type="password" name="password" id="password" required minlength="6">
+                <label for="password" >Password:</label><br>
+                <input type="password" name="password" id="password" required minlength="6" placeholder="password"
+                       style="
+                            width:430px;
+                            height: 40px;
+                            font-size: .8em;
+                    ">
+                <br>
+                <br>
                 <!--Bio-->
-                <label for="bio">Bio:</label>
-                <textarea name="bio" id="bio"></textarea>
+                <label for="bio">Bio:</label><br>
+                <textarea name="bio" rows="5" cols="30" id="bio" style="font-size: 1.2em;" required></textarea>
+                <br>
+                <br>
                 <!--Radio Checks-->
                 <div class="checks">
-                    <p>How did you hear about us?</p>
+                    <span>How did you hear about us?</span><br>
                     <input type="radio" name="howYouHearAboutUs" id="billBoard" value="billboard">
-                    <label for="billBoard">BillBoard</label>
+                    <label for="billBoard">BillBoard</label><br>
                     <input type="radio" name="howYouHearAboutUs" id="radioAdvertisement" value="radio advertisement">
-                    <label for="radioAdvertisement">Radio Advertisement</label>
+                    <label for="radioAdvertisement">Radio Advertisement</label><br>
                     <input type="radio" name="howYouHearAboutUs" id="internetAdvertisement" value="internetAdvertisement">
-                    <label for="internetAdvertisement">Internet Advertisement</label>
+                    <label for="internetAdvertisement">Internet Advertisement</label><br>
                     <input type="radio" name="howYouHearAboutUs" id="other" value="other">
                     <label for="other">Other</label>
                 </div>
-
-                <label for="browser">What web browswer do you use:</label>
-                <select name="browser" id="browser">
-                    <option value="chrome">Chrome</option>
-                    <option value="brave">Brave</option>
-                    <option value="Safari">Safari</option>
-                    <option value="explorer">Explorer</option>
-                </select>
-
-                <input type="submit" id="submit" value="Submit!!!">
+                <br>
+                <section>
+                    <label for="browser">What web browser do you use:</label><br>
+                    <select name="browser" id="browser" style="font-size: 1em;margin-top: 10px">
+                        <option value="chrome">Chrome</option>
+                        <option value="brave">Brave</option>
+                        <option value="Safari">Safari</option>
+                        <option value="explorer">Explorer</option>
+                    </select>
+                </section>
+                <br>
+                <br>
+                <input type="submit" id="submit" value="Submit!"  style="
+                  text-align: center;
+                  padding: 1rem;
+                  background-color: #e5eaed;
+                  color: black;
+                  font-weight: bolder;
+                  border-radius: 15px;
+                  margin-left: 10rem;
+                  letter-spacing: .2rem;
+                  text-transform: uppercase;
+                ">
 
             </fieldset>
         </form>
