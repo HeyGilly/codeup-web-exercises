@@ -41,44 +41,60 @@
 
 //------- Feb 09, 22- Tuesday
 //write a function that in a number and returns that number plus itself.
-function moringExercise(numInput) {
-    return Number(numInput) + Number(numInput);
-};
-console.log(moringExercise(2));
+// function moringExercise(numInput) {
+//     return Number(numInput) + Number(numInput);
+// };
+// console.log(moringExercise(2));
+//
+// //Write a function that takes in two numbers, doubles each number, and then returns the sum of both numbers doubled.
+// function twoNumbers(num1, num2){
+//     return (num1*2)+(num2*2);
+// }
+//
+// console.log(twoNumbers(1, 2));
+//
+// //write a function that takes in a number and squares itself.
+// function square(squareThisNum){
+//     return squareThisNum ** 2;
+// }
+//
+// console.log(square(5));
+//
+// //write a function that takes in a string and returns its length
+// function lengthString(x){
+//     return x.length;
+// }
+//
+// console.log(lengthString("hello dsfasdf"));
+//
+// //write a fucntion that takes in two strings and return the sum of their lengths.
+// function sumLength(str1, str2){
+//     return str1.length + str2.length;
+// }
+//
+// console.log(sumLength('why', 'who I cant belaive it '));
+//
+// // write a function that take in a number and return the sstring even or off depending on where thae number is even
+// // or odd.
+//
+// function evenOdd(numInput){
+//     return (numInput % 2 == 0) ? 'even':'odd';
+// }
+//
+// console.log(evenOdd(7));
 
-//Write a function that takes in two numbers, doubles each number, and then returns the sum of both numbers doubled.
-function twoNumbers(num1, num2){
-    return (num1*2)+(num2*2);
+
+
+//------- Feb 16, 22- Tuesday
+const areaOrPerimeter = function(l,w){
+    //Return your answer
+    var num = 0
+    if (l === w){
+        num = 4 * l;
+    }else {
+        num = 2*(l*w);
+    }
+    return num
 }
-
-console.log(twoNumbers(1, 2));
-
-//write a function that takes in a number and squares itself.
-function square(squareThisNum){
-    return squareThisNum ** 2;
-}
-
-console.log(square(5));
-
-//write a function that takes in a string and returns its length
-function lengthString(x){
-    return x.length;
-}
-
-console.log(lengthString("hello dsfasdf"));
-
-//write a fucntion that takes in two strings and return the sum of their lengths.
-function sumLength(str1, str2){
-    return str1.length + str2.length;
-}
-
-console.log(sumLength('why', 'who I cant belaive it '));
-
-// write a function that take in a number and return the sstring even or off depending on where thae number is even
-// or odd.
-
-function evenOdd(numInput){
-    return (numInput % 2 == 0) ? 'even':'odd';
-}
-
-console.log(evenOdd(7));
+console.log(areaOrPerimeter(4, 4), 16);
+console.log(areaOrPerimeter(6, 10), 120);
