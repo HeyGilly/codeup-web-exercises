@@ -124,3 +124,4 @@ function takes2integers(integerString1, integerString2){
 console.log(takes2integers("4", "5"));
 console.log(takes2integers("34", "5"));
 console.log(takes2integers("", ""));
+console.log(takes2integers("Hello", ""));
