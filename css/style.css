@@ -1,3 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&family=Raleway:wght@300;400;500&display=swap');
+/*font-family: 'Poller One', cursive;*/
+/*font-family: 'Raleway', sans-serif;*/
+*{margin:0;Padding:0;}
 h1{
-    color: red;
+    color: crimson;
+    text-align: center;
+    font-family: 'Poller One', cursive;
+}
+
+
+ul li::marker {
+    content: "😁";
+}
+ol li::marker {
+    content: "👻";
+}
+li{
+    padding-left: 1rem;
+}
+
+
+/*-------------EXTRA BONUS PART*/
+body{
+    background-color: #c3ccd4;
+    background: url('/img/redbg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+
+}
+header{
+    background-color: white;
+    height: 100px;
+    padding-top: 2rem;
+    box-shadow: 0 2px 10px #1e1e1e;
+}
+header p{
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 16px;
+}
+#topPortion{
+    height: 140px;
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+#topPortion section{
+    background-color: white;
+    display: inline-block;
+    padding: 1rem 0 1rem 1.8rem;
+    border-radius: 12px;
+    margin: 0 6rem;
+    padding-left:40px;
+    padding-top: 20px;
+    width: 300px;
+}
+h2{
+    color: crimson;
+    display: inline;
+    text-decoration: underline;
+    font-family: 'Poller One', cursive;
+}
+#topPortion section h2{
+   font-size: 1.3em;
+}
+#topPortion section ul,#topPortion section ol {
+    padding: 10px;
+    letter-spacing: 2px;
+}
+#wholeSecondPortion {
+    width: 100%;
+}
+#companyvision{
+    width: 50vw;
+    text-align: center;
+    display: inline-block;
+    float: left;
+}
+#companyvision h2{
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 3rem;
+}
+img{
+    height: 15vw;
+    margin: 1rem;
+    transition: .8s height ease-in-out;
+}
+img:hover{
+    height: 18vw;
+}
+#table{
+    width: 40vw;
+    display: inline-block;
+    text-align: center;
+}
+table{
+    margin: 0 auto;
+    padding: 2rem;
+    font-size: 24px;
+    color: #fcf8f8;
+}
+#table h2{
+    font-size: 1.8rem;
+    color: white;}
+th{
+    border-bottom: 3px solid white;
+}
+tr td{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    letter-spacing: 2px;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: crimson;
+    text-align: center;
+    background-color: #fcf8f8;
+    height: 7vh;
+    padding: 1rem;
+}
+footer p {
+    padding: 1rem;
 }
