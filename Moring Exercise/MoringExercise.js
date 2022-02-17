@@ -85,20 +85,42 @@
 
 
 
-//------- Feb 16, 22- Tuesday
-const areaOrPerimeter = function(l,w){
-    //Return your answer
-    if(isNaN(parseFloat(l)) || isNaN(parseFloat(w))) {
+//------- Feb 16, 22- Wed.
+// const areaOrPerimeter = function(l,w){
+//     //Return your answer
+//     if(isNaN(parseFloat(l)) || isNaN(parseFloat(w))) {
+//         return false;
+//     }
+//     var num = 0
+//     if (l === w){
+//         num = 4 * l;
+//     }else {
+//         num = 2*l + 2*w;
+//     }
+//     return num
+// }
+// console.log(areaOrPerimeter(4, 4), 16);
+// console.log(areaOrPerimeter(6, 10), 32);
+// console.log(areaOrPerimeter("hello", 10), false);
+
+
+
+//------- Feb 17, 22- Thursday
+function takes2integers(integerString1, integerString2){
+    if (integerString1 === ''){
+        integerString1 = 0;
+    }
+    if (integerString2 === ''){
+        integerString2 = 0;
+    }
+    if (isNaN(integerString1) || isNaN(integerString2)){
         return false;
     }
-    var num = 0
-    if (l === w){
-        num = 4 * l;
-    }else {
-        num = 2*l + 2*w;
-    }
-    return num
+    var num1 = parseInt(integerString1);
+    var num2 = parseInt(integerString2);
+    return num1 + num2;
 }
-console.log(areaOrPerimeter(4, 4), 16);
-console.log(areaOrPerimeter(6, 10), 32);
-console.log(areaOrPerimeter("hello", 10), false);
+
+console.log(takes2integers("4", "5"));
+console.log(takes2integers("34", "5"));
+console.log(takes2integers("", ""));
