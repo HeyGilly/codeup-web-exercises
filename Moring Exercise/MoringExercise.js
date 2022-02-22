@@ -106,22 +106,53 @@
 
 
 //------- Feb 17, 22- Thursday
-function takes2integers(integerString1, integerString2){
-    if (integerString1 === ''){
-        integerString1 = 0;
+// function takes2integers(integerString1, integerString2){
+//     if (integerString1 === ''){
+//         integerString1 = 0;
+//     }
+//     if (integerString2 === ''){
+//         integerString2 = 0;
+//     }
+//     if (isNaN(integerString1) || isNaN(integerString2)){
+//         return false;
+//     }
+//     var num1 = parseInt(integerString1);
+//     var num2 = parseInt(integerString2);
+//     return num1 + num2;
+// }
+//
+// console.log(takes2integers("4", "5"));
+// console.log(takes2integers("34", "5"));
+// console.log(takes2integers("", ""));
+// console.log(takes2integers("Hello", ""));
+
+
+
+
+
+//------- Feb 17, 22- Thursday
+
+// Create a function, createNames, that takes in an array of first names and an array of last names. The function should return an array of name objects with firstName and lastName properties with the input array values. Assume both input arrays are not empty, the same length and only contain string elements.
+
+
+
+
+function createNames(firstNameArray, lastNameArray){
+    var emptyArray = [];
+    for(var X = 0; X < firstNameArray.length; X++){
+         emptyArray.push ({
+            "First Name": firstNameArray[X],
+            "Last Name": lastNameArray[X],
+        });
     }
-    if (integerString2 === ''){
-        integerString2 = 0;
-    }
-    if (isNaN(integerString1) || isNaN(integerString2)){
-        return false;
-    }
-    var num1 = parseInt(integerString1);
-    var num2 = parseInt(integerString2);
-    return num1 + num2;
+    return emptyArray;
 }
 
-console.log(takes2integers("4", "5"));
-console.log(takes2integers("34", "5"));
-console.log(takes2integers("", ""));
-console.log(takes2integers("Hello", ""));
+var firstNames = ['CJ', 'Max', 'Claude', 'Meowmeow'];
+var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
+
+
+console.log(createNames(firstNames, lastNames));
+
+
+
