@@ -2,3 +2,10 @@
 body{box-sizing: border-box;}
 
 
+.jumbotron{
+    background-image: url("/img/pizza.png");
+    background-size: cover;
+}
+.jumbotron div{
+    opacity: .8;
+}
