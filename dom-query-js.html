@@ -90,15 +90,18 @@
                 function colorChange() {
                     subHeader.style.color = 'royalBlue'
                 }
-                // // TODO: Uncomment the next line and get all list items
-                // const listItems = document.getElementsByTagName('li');
-                //
-                //
-                // // TODO: Set text color on every other list item to grey
-                // for (var XO = 1;XO <listItems.length; XO+=2){
-                //     listItems[XO].style.color = 'grey';
-                // }
-                //
+
+                // TODO: Uncomment the next line and get all list items
+                const listItems = document.getElementsByTagName('li');
+                btn3.addEventListener("click", EveryOtherGrey);
+                // TODO: Set text color on every other list item to grey
+                function EveryOtherGrey() {
+                    for (let XO = 1;XO <listItems.length; XO+=2){
+                        listItems[XO].style.color = 'grey';
+                    }
+                }
+
+
                 // // TODO: Set text color of li with dbid = 1 to blue
                 // listItems[0].style.color = 'blue';
                 //
