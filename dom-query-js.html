@@ -15,22 +15,22 @@
                 font-size: 16px;
                 cursor: pointer;
             }
-            .button1{
+            #btn1{
                 background-color: white;
                 color: black;
                 border: 2px solid #4CAF50;
             }
-            .button2{
+            #btn2{
                 background-color: white;
                 color: black;
                 border: 2px solid #0088ff;
             }
-            .button3{
+            #btn3{
                 background-color: white;
                 color: black;
                 border: 2px solid #af4c4c;
             }
-            .button4{
+            #btn4{
                 background-color: white;
                 color: black;
                 border: 2px solid #dd00ff;
@@ -60,10 +60,10 @@
         </p>
 
 
-        <button class="button1" id="btn1">Green</button>
-        <button class="button2">Blue</button>
-        <button class="button3">Blue</button>
-        <button class="button4">Blue</button>
+        <button id="btn1">Change Heading</button>
+        <button id="btn2">Blue</button>
+        <button id="btn3">Blue</button>
+        <button id="btn4">Blue</button>
 
         <script>
             (function() {
@@ -82,11 +82,14 @@
 
 
                 // // TODO: Uncomment the next line and get the sub header element by id
-                // const subHeader = document.getElementById("sub-header");
-                //
-                // // TODO: Set the text color of subHeader to blue
-                // subHeader.style.color = 'royalBlue'
-                //
+                const subHeader = document.getElementById("sub-header");
+                const btn2 = document.getElementById("btn2");
+
+                // TODO: Set the text color of subHeader to blue
+                btn2.addEventListener("click", colorChange);
+                function colorChange() {
+                    subHeader.style.color = 'royalBlue'
+                }
                 // // TODO: Uncomment the next line and get all list items
                 // const listItems = document.getElementsByTagName('li');
                 //
