@@ -7,6 +7,37 @@
         <meta name="subject" content="DOM: Query and Modify">
         <meta name="description" content="  Working exercise with codeup working on DOM:Query and Modify">
         <title>DOM: Query and Modify</title>
+        <style>
+            button {
+                margin: 4px 2px;
+                padding: 16px 32px;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .button1{
+                background-color: white;
+                color: black;
+                border: 2px solid #4CAF50;
+            }
+            .button2{
+                background-color: white;
+                color: black;
+                border: 2px solid #0088ff;
+            }
+            .button3{
+                background-color: white;
+                color: black;
+                border: 2px solid #af4c4c;
+            }
+            .button4{
+                background-color: white;
+                color: black;
+                border: 2px solid #dd00ff;
+            }
+
+
+        </style>
     </head>
     <body>
         <h1 id="main-header">Hello World!</h1>
@@ -28,40 +59,53 @@
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
+
+        <button class="button1" id="btn1">Green</button>
+        <button class="button2">Blue</button>
+        <button class="button3">Blue</button>
+        <button class="button4">Blue</button>
+
         <script>
             (function() {
                 "use strict";
                 // TODO: Uncomment next line and get the main header element by id
                 const mainHeader = document.getElementById('main-header');
+                const btn1 = document.getElementById("btn1");
+
                 // TODO: Set inner html of mainHeader to "JavaScript is Cool"
                 const contentChange = 'Javascript is Cool';
-                mainHeader.innerText = contentChange;
+                btn1.addEventListener("click", headerChange);
 
-                // TODO: Uncomment the next line and get the sub header element by id
-                const subHeader = document.getElementById("sub-header");
-
-                // TODO: Set the text color of subHeader to blue
-                subHeader.style.color = 'royalBlue'
-
-                // TODO: Uncomment the next line and get all list items
-                const listItems = document.getElementsByTagName('li');
-
-
-                // TODO: Set text color on every other list item to grey
-                for (var XO = 1;XO <listItems.length; XO+=2){
-                    listItems[XO].style.color = 'grey';
+                function headerChange() {
+                    mainHeader.innerText = contentChange;
                 }
 
-                // TODO: Set text color of li with dbid = 1 to blue
-                listItems[0].style.color = 'blue';
 
-                // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-                var subParagraphs = document.getElementsByClassName('sub-paragraph');
-
-
-                // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-                var message = "Mission Accomplished!";
-                subParagraphs[0].innerHTML = message;
+                // // TODO: Uncomment the next line and get the sub header element by id
+                // const subHeader = document.getElementById("sub-header");
+                //
+                // // TODO: Set the text color of subHeader to blue
+                // subHeader.style.color = 'royalBlue'
+                //
+                // // TODO: Uncomment the next line and get all list items
+                // const listItems = document.getElementsByTagName('li');
+                //
+                //
+                // // TODO: Set text color on every other list item to grey
+                // for (var XO = 1;XO <listItems.length; XO+=2){
+                //     listItems[XO].style.color = 'grey';
+                // }
+                //
+                // // TODO: Set text color of li with dbid = 1 to blue
+                // listItems[0].style.color = 'blue';
+                //
+                // // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+                // var subParagraphs = document.getElementsByClassName('sub-paragraph');
+                //
+                //
+                // // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+                // var message = "Mission Accomplished!";
+                // subParagraphs[0].innerHTML = message;
 
             })();
         </script>
