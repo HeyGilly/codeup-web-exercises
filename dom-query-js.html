@@ -61,9 +61,11 @@
 
 
         <button id="btn1">Change Heading</button>
-        <button id="btn2">Blue</button>
-        <button id="btn3">Blue</button>
-        <button id="btn4">Blue</button>
+        <button id="btn2">Change H2</button>
+        <button id="btn3">UL Color </button>
+        <button id="btn4">Are you done?</button>
+<br>
+        <button id="resetButton">Let me restart</button>
 
         <script>
             (function() {
@@ -93,25 +95,42 @@
 
                 // TODO: Uncomment the next line and get all list items
                 const listItems = document.getElementsByTagName('li');
-                btn3.addEventListener("click", EveryOtherGrey);
+                const btn3 = document.getElementById("btn3");
+
                 // TODO: Set text color on every other list item to grey
+                btn3.addEventListener("click", EveryOtherGrey);
+
                 function EveryOtherGrey() {
                     for (let XO = 1;XO <listItems.length; XO+=2){
                         listItems[XO].style.color = 'grey';
                     }
+                    // TODO: Set text color of li with dbid = 1 to blue
+                    listItems[0].style.color = 'blue';
                 }
 
 
-                // // TODO: Set text color of li with dbid = 1 to blue
-                // listItems[0].style.color = 'blue';
-                //
-                // // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-                // var subParagraphs = document.getElementsByClassName('sub-paragraph');
-                //
-                //
-                // // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-                // var message = "Mission Accomplished!";
-                // subParagraphs[0].innerHTML = message;
+
+                // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+                 var subParagraphs = document.getElementsByClassName('sub-paragraph');
+                const btn4 = document.getElementById("btn4");
+
+
+                // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+                btn4.addEventListener("click", HideEverything);
+
+                var message;
+                function HideEverything() {
+                    message = "Mission Accomplished!";
+                    subParagraphs[0].innerHTML = message;
+                }
+
+                // location.reload();
+                const resetBtn = document.getElementById("resetButton");
+                resetBtn.addEventListener("click", reset);
+
+                function reset() {
+                    location.reload();
+                }
 
             })();
         </script>
