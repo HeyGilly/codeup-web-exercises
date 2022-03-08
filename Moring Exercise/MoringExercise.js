@@ -188,7 +188,6 @@ function computeOperations(operations, num){
 }
 
 
-
 // Example 1...
 
 var operations1 = [
