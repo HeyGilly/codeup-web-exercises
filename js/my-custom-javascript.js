@@ -13,7 +13,6 @@ $(document).ready(function() {
         "letter-spacing":"1px"
     })
 
-
     $('header').css({
         "font-size":"40px",
         "text-align":"center",
@@ -26,7 +25,7 @@ $(document).ready(function() {
     //ON click with the HEADER
     $('header').click(function (e){
         $(this).css({
-            "font-size":"40px",
+            "font-size":"48px",
             "text-align":"center",
             'padding': "40px 0",
             'text-transform': "uppercase",
@@ -42,4 +41,19 @@ $(document).ready(function() {
     })
 
 
+    //ON click with the HEADER
+    $('#containerParagraph').click(function (e){
+        $(this).css({
+            "text-align":"center",
+            'margin': "4em auto",
+            'padding':'3em',
+            "background-color":"#1e1e1e",
+            'width':'45vw',
+            'border-radius':'20px'
+        });
+        $('#paragraph').css({
+            "font-size":"23px",
+            'color':'white'
+        })
+    })
 });
