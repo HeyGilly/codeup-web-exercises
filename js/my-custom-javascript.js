@@ -41,7 +41,7 @@ $(document).ready(function() {
     })
 
 
-    //ON click with the HEADER
+    //ON click with the paragraph
     $('#containerParagraph').click(function (e){
         $(this).css({
             "text-align":"center",
@@ -57,3 +57,26 @@ $(document).ready(function() {
         })
     })
 });
+
+//ON click with the paragraph
+$('#unOrderList').click(function (e){
+    $('.containerUnorderlist').css({
+        'display':'flex',
+        'justify-content':'center'
+    });
+    $(this).css({
+        'display':'inline-flex',
+        'justify-content':'space-evenly',
+        'padding': '40px 0',
+        "background-color":"#1e1e1e",
+        'width':'50vw',
+        'border-radius':'20px'
+    });
+    $('.listItem').css({
+        "font-size":"23px",
+        'color':'white'
+    })
+});
+
+
+
