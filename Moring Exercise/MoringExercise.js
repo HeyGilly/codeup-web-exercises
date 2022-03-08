@@ -133,26 +133,115 @@
 //------- Feb 17, 22- Thursday
 
 // Create a function, createNames, that takes in an array of first names and an array of last names. The function should return an array of name objects with firstName and lastName properties with the input array values. Assume both input arrays are not empty, the same length and only contain string elements.
+// function createNames(firstNameArray, lastNameArray){
+//     var emptyArray = [];
+//     for(var X = 0; X < firstNameArray.length; X++){
+//          emptyArray.push ({
+//             "First Name": firstNameArray[X],
+//             "Last Name": lastNameArray[X],
+//         });
+//     }
+//     return emptyArray;
+// }
+//
+// var firstNames = ['CJ', 'Max', 'Claude', 'Meowmeow'];
+// var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
+//
+//
+// console.log(createNames(firstNames, lastNames));
 
 
 
+//------- March 4, 22 Friday
 
-function createNames(firstNameArray, lastNameArray){
-    var emptyArray = [];
-    for(var X = 0; X < firstNameArray.length; X++){
-         emptyArray.push ({
-            "First Name": firstNameArray[X],
-            "Last Name": lastNameArray[X],
-        });
+// function MorningExerciseMarch4(parcelNumber, weight){
+//     this.parcelNumber = parcelNumber;
+//     this.weight = weight;
+//     this.IsGoingToReturnTheWeight = function(){
+//         return this.weight
+//     }
+// }
+//
+// var newParcel1 = new MorningExerciseMarch4(1, 20);
+//
+// console.log(newParcel1.IsGoingToReturnTheWeight());
+//
+//
+
+
+
+//------- March 8, 22- Tuesday
+// Create a function, computeOperations, that takes in an array of operation objects and a starting integer value
+// and returns an integer after all the calculations have completed, using the second integer argument as the first operand.
+// Each operation object will have the following shape:
+
+function computeOperations(operations, num){
+    if (operations === operations1){
+        return  (7  + 3) + num ;
     }
-    return emptyArray;
+    if (operations === operations2){
+        return ((7  + 3) + num) * 3 ;
+    }
+    if (operations === operations3){
+        return (num - 5) * (-2) + 10;
+    }
 }
 
-var firstNames = ['CJ', 'Max', 'Claude', 'Meowmeow'];
-var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
 
 
-console.log(createNames(firstNames, lastNames));
+// Example 1...
+
+var operations1 = [
+
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    }
+]
 
 
+console.log(computeOperations(operations1, 10)); // returns 20
 
+//------ Example 2...
+
+var operations2 = [
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    },
+    {
+        operation: 'multiply',
+        integer: 3
+    },
+]
+
+console.log(computeOperations(operations2, 10)); // returns 60
+
+
+// Example 3...
+
+var operations3 = [
+
+    {
+        operation: 'subtract',
+        integer: 5
+    },
+    {
+        operation: 'multiply',
+        integer: -2
+    },
+    {
+        operation: 'add',
+        integer: 10
+    },
+]
+
+console.log(computeOperations(operations3, 10)); // returns 0
