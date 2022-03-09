@@ -21,29 +21,47 @@
         <script>
             "use strict";
 
-            const KonamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
-            const newList = [];
-
-
+                var KonamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+                var count = 0;
 
             $(document).keyup(function(event){
                 console.log(event.keyCode);     // number of pressed character
                 console.log(event.key);         // name of pressed character
-                newList.push(event.keyCode)         // a collection of your keys put into the new list.
-                //when creating this new list we are going to collect the number amount of konami Code length
-                //you start at the end then go left. the end will give us the length we need.
-               newList.splice(-KonamiCode.length - 1, newList.length - KonamiCode.length);
-                console.log(newList)
-                for (var x = 0; x<KonamiCode.length;x++){
-                    if (newList[x] == KonamiCode[x]){
-                        if(newList.length == KonamiCode.length){
-                            activateCheatCode();
-                        }
-                    }
+                console.log(KonamiCode.indexOf(event.key));         // name of pressed character
+
+                //  when you press a key that is not align with the KonamiCOde a (-1) will show, and then you will have to reset your count
+                //  or
+                //  if the key is NOT equal to the KonamiCode[count] in sequence then reset count.
+                if (KonamiCode.indexOf(event.key) < 0 || event.key !== KonamiCode[count]) {
+                    count = 0;
+                    return;
                 }
-                function activateCheatCode(){
-                    alert('wow');
+                // If your on the correct path your count will increase by 1
+               count++;
+                // Once the count equals the length of the konamiCode, then reset count and fun function Congrats()
+                if (KonamiCode.length === count) {
+                    count = 0;
+                    congrats();
                 }
+                // this function will fun when you complete the code
+                function congrats(){
+                    window.alert('You found it!');
+                }
+
+                //----- I tried to put everything inside a forloop for some reason it is not working for me,
+                //      The version on top feels like a longer loop
+
+                // for (var x = 0; x<KonamiCode.length;x++){
+                //     if ( event.key !== KonamiCode[x]) {
+                //         x = 0;
+                //         return;
+                //     }
+                //     if (KonamiCode.length === x) {
+                //         x= 0;
+                //         window.alert('You found it!');
+                //     }
+                // };
+
 
             });
         </script>
