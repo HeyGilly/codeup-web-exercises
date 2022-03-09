@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <meta name="creator" content="Nicholas 'Gilly' Gilmore">
+    <meta name="subject" content="Konami Code">
+    <meta name="description" content="Konami Code">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Konami Code</title>
+</head>
+    <body>
+        <h1>Konami Code</h1>
+        <small>up up down down left right left right b a</small>
+
+
+
+
+
+        <script>
+            "use strict";
+
+            const KonamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
+            const newList = [];
+
+
+
+            $(document).keyup(function(event){
+                console.log(event.keyCode);     // number of pressed character
+                console.log(event.key);         // name of pressed character
+                newList.push(event.keyCode)         // a collection of your keys put into the new list.
+                //when creating this new list we are going to collect the number amount of konami Code length
+                //you start at the end then go left. the end will give us the length we need.
+               newList.splice(-KonamiCode.length - 1, newList.length - KonamiCode.length);
+                console.log(newList)
+                for (var x = 0; x<KonamiCode.length;x++){
+                    if (newList[x] == KonamiCode[x]){
+                        if(newList.length == KonamiCode.length){
+                            activateCheatCode();
+                        }
+                    }
+                }
+                function activateCheatCode(){
+                    alert('wow');
+                }
+
+            });
+        </script>
+    </body>
+</html>
