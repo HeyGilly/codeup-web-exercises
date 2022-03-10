@@ -174,73 +174,97 @@
 // Create a function, computeOperations, that takes in an array of operation objects and a starting integer value
 // and returns an integer after all the calculations have completed, using the second integer argument as the first operand.
 // Each operation object will have the following shape:
+//
+// function computeOperations(operations, num){
+//     if (operations === operations1){
+//         return  (7  + 3) + num ;
+//     }
+//     if (operations === operations2){
+//         return ((7  + 3) + num) * 3 ;
+//     }
+//     if (operations === operations3){
+//         return (num - 5) * (-2) + 10;
+//     }
+// }
+//
+//
+// // Example 1...
+//
+// var operations1 = [
+//
+//     {
+//         operation: 'add',
+//         integer: 7
+//     },
+//     {
+//         operation: 'add',
+//         integer: 3
+//     }
+// ]
+//
+//
+// console.log(computeOperations(operations1, 10)); // returns 20
+//
+// //------ Example 2...
+//
+// var operations2 = [
+//     {
+//         operation: 'add',
+//         integer: 7
+//     },
+//     {
+//         operation: 'add',
+//         integer: 3
+//     },
+//     {
+//         operation: 'multiply',
+//         integer: 3
+//     },
+// ]
+//
+// console.log(computeOperations(operations2, 10)); // returns 60
+//
+//
+// // Example 3...
+//
+// var operations3 = [
+//
+//     {
+//         operation: 'subtract',
+//         integer: 5
+//     },
+//     {
+//         operation: 'multiply',
+//         integer: -2
+//     },
+//     {
+//         operation: 'add',
+//         integer: 10
+//     },
+// ]
+//
+// console.log(computeOperations(operations3, 10)); // returns 0
 
-function computeOperations(operations, num){
-    if (operations === operations1){
-        return  (7  + 3) + num ;
-    }
-    if (operations === operations2){
-        return ((7  + 3) + num) * 3 ;
-    }
-    if (operations === operations3){
-        return (num - 5) * (-2) + 10;
-    }
-}
 
 
-// Example 1...
 
-var operations1 = [
+//------- March 10, 22- Thursday
+// ================================= WARM UP
 
-    {
-        operation: 'add',
-        integer: 7
-    },
-    {
-        operation: 'add',
-        integer: 3
-    }
-]
+//Create a function, addTwos, that takes in a array of integers and returns the sum of all 2s in the array. If no 2s
+// are in the array, return 0.
 
-
-console.log(computeOperations(operations1, 10)); // returns 20
-
-//------ Example 2...
-
-var operations2 = [
-    {
-        operation: 'add',
-        integer: 7
-    },
-    {
-        operation: 'add',
-        integer: 3
-    },
-    {
-        operation: 'multiply',
-        integer: 3
-    },
-]
-
-console.log(computeOperations(operations2, 10)); // returns 60
+Examples:
+    var nums1 = [1, 2, 3, 4, 5];
+    var nums2 = [2, 2, 3, 4, 5];
+    var nums3 = [10, 0, -5, 4, 5];
+    var nums4 = [2, 2, -5, 2, 2];
+    var nums5 = [2, 2, 2, 2, 2];
 
 
-// Example 3...
+console.log(addTwos(nums1)); // returns 2
+addTwos(nums2) // returns 4
+addTwos(nums3) // returns 0
+addTwos(nums4) // returns 8
+addTwos(nums5) // returns 10
 
-var operations3 = [
-
-    {
-        operation: 'subtract',
-        integer: 5
-    },
-    {
-        operation: 'multiply',
-        integer: -2
-    },
-    {
-        operation: 'add',
-        integer: 10
-    },
-]
-
-console.log(computeOperations(operations3, 10)); // returns 0
