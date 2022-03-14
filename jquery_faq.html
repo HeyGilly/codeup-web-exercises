@@ -38,9 +38,16 @@
 
                 $("h3").click(function (){
                     $('div').children('ul').each(function (){
-                        $(this).children().first().css('font-weight', 'bold');
+                        $(this).children().css('font-weight', 'bold');
                     })
                 });
+
+                $("li").click(function (){
+                    $('div').children('ul').each(function (){
+                        $(this).children().first().css('color', 'royalblue');
+                    })
+                });
+
             });
         </script>
 
