@@ -14,21 +14,21 @@
         "powered"
     ],
     "price": 100
-}, {
-    "title": "Mower",
-    "quantity": 5,
-    "categories": [
-        "tool",
-        "gas",
-        "outdoor"
-    ],
-    "price": 200
-}, {
-    "title": "Screwdrivers",
-    "quantity": 25,
-    "categories": [
-        "tool"
-    ],
-    "price": 10
-}
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdrivers",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    }
 ]
