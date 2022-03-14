@@ -36,8 +36,11 @@
                     })
                 });
 
-
-
+                $("h3").click(function (){
+                    $('div').children('ul').each(function (){
+                        $(this).children().first().css('font-weight', 'bold');
+                    })
+                });
             });
         </script>
 
