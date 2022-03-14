@@ -1,82 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta charset="utf-8">
-    <meta name="creator" content="Nicholas 'Gilly' Gilmore">
-    <meta name="subject" content="AJAX">
-    <meta name="description" content=" AJAX ">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <meta name="creator" content="Nicholas 'Gilly' Gilmore">
+        <meta name="subject" content="AJAX">
+        <meta name="description" content=" AJAX ">
 
 
-    <title>Online Store</title>
-</head>
-<body>
-
-<h1>My Tool Store</h1>
-
-<table id="products">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Categories</th>
-    </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-<script>
-    (function() {
-        "use strict";
-        // TODO: Create an AJAX GET request for the file under data/inventory.json
-        $.ajax('data/inventory.json.js').done(function(inputs){
-
-            $('#insertProducts').append(customHTML(inputs))
-
-        })
-
-        // TODO: Take the data from inventory.json and append it to the products table
-        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-        //             its contents and fields
-        //       HINT: You will want to target #insertProducts for your new HTML elements\
-
-        // function customHTML(inputs){
-        //     var obj = Object.assign({}, inputs);
-        //
-        //     const objArray = Object.fromEntries(Object.entries(inputs));
-        //
-        //     var obj2 = {};
-        //
-        //     for (let i=0; i<inputs.length; i++) {
-        //         obj2[i] = inputs[i];
-        //     }
-        //
-        //
-        //     var wow = inputs;
-        //     console.log(inputs);
-        //     console.log(obj);
-        //     console.log(obj2);
-        //     console.log(objArray);
+        <title>Online Store</title>
+    </head>
+    <body>
 
 
 
-        //     let fillspace = '';
-        //     for(var x = 0; x <inputs.length; x++){
-        //         fillspace +=
-        //             '<section>' +
-        //                 '<tr>' +
-        //                     '<td>' + inputs[x].title + '</td>' +
-        //                 '</tr>'
-        //         '</section>';
-        //     }
-        //     return fillspace;
-        }
+    <h1>My Tool Store</h1>
 
-    })();
-</script>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+        </thead>
+        <tbody id="insertProducts"></tbody>
+    </table>
 
-</body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script>
+        (function() {
+            "use strict";
+            // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+            // TODO: Take the data from inventory.json and append it to the products table
+            //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+            //             its contents and fields
+            //       HINT: You will want to target #insertProducts for your new HTML elements
+        })();
+    </script>
+
+
+    </body>
 </html>
