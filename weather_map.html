@@ -6,33 +6,56 @@
         <meta name="creator" content="Nicholas 'Gilly' Gilmore">
         <meta name="subject" content="Weather API">
         <meta name="description" content=" Using HTML, CSS, jQuery, AJAX, and the OpenWeatherMap API,to create a weather map of your location ">
-        <link href="css/weather_map.css" type="text/css" rel="stylesheet">
+        <!-- Mapbox CSS -->
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
         <!-- Personal StyleSheet -->
+        <link href="css/weather_map.css" type="text/css" rel="stylesheet">
+        <!--Font Awesome -->
+        <script src="https://kit.fontawesome.com/5d0c1b436d.js" crossorigin="anonymous"></script>
 
         <title>Weather Map</title>
+
+
+
+        <style>
+            #map {
+                /* the width and height may be set to any size */
+                min-width: 240px;
+                width: 80vw;
+                max-width: 620px;
+                min-height: 200px;
+                height: 80vw;
+                max-height: 400px;
+                margin: 0 auto;
+                border-radius: 12px;
+                border: 5px solid whitesmoke;
+                box-shadow: 0 4px 10px #1e1e1e;
+
+            }
+            #mapContainer{
+            }
+        </style>
     </head>
     <body>
-<!--    <header class="">-->
-<!--        <h1>Weather Map</h1>-->
-<!--    </header>-->
 
+    <div id="timeAndDate">
+        <div id="todaysTime"></div>
+        <span class="smalldates" id="dateDay">day</span> |
+        <span class="smalldates" id="dateDate">date</span>
+    </div>
     <main>
 
-        <div id="timeAndDate">
-            <div id="todaysTime"></div>
-            <span class="smalldates" id="dateDay">day</span> |
-            <span class="smalldates" id="dateDate">date</span>
-        </div>
 
-        <div>
-
-        </div>
+        <form class="example" action="/action_page.php">
+            <input type="text" placeholder="Search City.." name="search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+        </form>
 
         <div class="mainContainer">
             <section id="mainLeft">
                 <h2 id="cityName"></h2>
                 <section class="fahrenheitContainer">
-                    <p id="todaysFahrenheit"></p><div class="circle"></div>
+                    <p id="todaysFahrenheit"></p>&#x2109;
                 </section>
                 <section id="highLowContainer">
                     <p class="highest">High</p><p class="lowest">low</p>
@@ -47,7 +70,6 @@
 
 
         <div class="fourDayContainer">
-
             <section class="fourdaysection">
                 <p class="little1stDay">day</p>
                 <img id="littleIcon1" src="" alt="Tomorrow's Weather icon">
@@ -57,7 +79,6 @@
                 </section>
                 <p class="dailyHumid1 dailyHum"></p>
             </section>
-
             <section class="fourdaysection">
                 <p class="little2ndDay">day</p>
                 <img id="littleIcon2" src="" alt="Tomorrow's Weather icon">
@@ -93,23 +114,53 @@
                     <p class="high4Day5 highlow">High</p><p class="low4Day5 highlow">low</p>
                 </section>
                 <p class="dailyHumid5 dailyHum"></p>
-
             </section>
-
         </div>
-
-
 
     </main>
 
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id="mapContainer">
+        <div id='map'></div>
+    </div>
 
-    <footer>
-        <small> HeyGilly 2022</small>
-    </footer>
+<!--    <footer>-->
+<!--        <small> HeyGilly 2022</small>-->
+<!--    </footer>-->
 
     </body>
     <script src="js/keys.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = MapBox_Token;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            zoom: 10,
+            center: [-98.4916, 29.4252]
+        });
+
+        var marker = new mapboxgl.Marker()
+            .setLngLat([-98.4916, 29.4260])
+            .addTo(map);
+
+
+
+        // add markers to map
+        for (const feature of geojson.features) {
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+
+
+        }
+
+    </script>
     <script>
         $.get("http://api.openweathermap.org/data/2.5/weather", {
             APPID: Weather_Token,
@@ -229,9 +280,14 @@
             $(".dailyHumid3").html("Humidity: "+Math.round(dataList[15].main.humidity)+"%");
             $(".dailyHumid4").html("Humidity: "+Math.round(dataList[20].main.humidity)+"%");
             $(".dailyHumid5").html("Humidity: "+Math.round(dataList[25].main.humidity)+"%");
-
-
-
         });
+
+
+
+
     </script>
+
+
+
+
 </html>
