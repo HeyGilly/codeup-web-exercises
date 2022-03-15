@@ -8,6 +8,7 @@ body{
     height: 100%;
     width: auto;
     font-size: 18px;
+    margin-bottom: 48px;
 }
 
 #todaysTime{
