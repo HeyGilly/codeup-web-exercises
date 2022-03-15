@@ -30,7 +30,6 @@
                 border-radius: 12px;
                 border: 5px solid whitesmoke;
                 box-shadow: 0 4px 10px #1e1e1e;
-
             }
             #mapContainer{
             }
@@ -46,10 +45,16 @@
     <main>
 
 
-        <form class="example" action="/action_page.php">
-            <input type="text" placeholder="Search City.." name="search">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass-location"></i></button>
-        </form>
+        <div class="formContainer">
+            <input id="searchCity" type="text" placeholder="Search City.." name="search">
+            <button type="btn" id="buttonSearch"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+        </div>
+
+
+
+
+
+
 
         <div class="mainContainer">
             <section id="mainLeft">
@@ -133,6 +138,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
     <script>
         mapboxgl.accessToken = MapBox_Token;
         var map = new mapboxgl.Map({
@@ -142,27 +149,23 @@
             center: [-98.4916, 29.4252]
         });
 
-        var marker = new mapboxgl.Marker()
-            .setLngLat([-98.4916, 29.4260])
-            .addTo(map);
+        let x;
+        $("#buttonSearch").click(function (e) {
+            e.preventDefault;
+            x = document.getElementById("searchCity").value;
+            // alert(x);
+            // // the  geocode method from mapbox-geocoder-utils.js
+            geocode(x, MapBox_Token).then(function(result) {
+                map.setCenter(result);
+                map.setZoom(15);
+                map.setStyle('mapbox://styles/mapbox/dark-v10')
+            });
+        });
 
-
-
-        // add markers to map
-        for (const feature of geojson.features) {
-            // create a HTML element for each feature
-            const el = document.createElement('div');
-            el.className = 'marker';
-
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
-
-
-        }
 
     </script>
     <script>
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
+        $.get("https://api.openweathermap.org/data/2.5/weather", {
             APPID: Weather_Token,
             q:     "San Antonio, US",
             lang: "en",
@@ -179,11 +182,11 @@
             $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
             console.log(data);
             //--- City Name
-            console.log(data.name);
+            // console.log(data.name);
             $('#cityName').html(data.name);
             //--- Main Weather and Description
-            console.log(data.weather[0].main);
-            console.log(data.weather[0].description);
+            // console.log(data.weather[0].main);
+            // console.log(data.weather[0].description);
             $('#mainWeather').html(data.weather[0].main);
             $('#mainDescription').html(data.weather[0].description);
 
@@ -196,11 +199,11 @@
             //-- Sunrise today's time
             const sunrise = data.sys.sunrise;
             var myDate = new Date(1000*sunrise);
-            console.log(myDate.toLocaleTimeString("en-US"));
+            // console.log(myDate.toLocaleTimeString("en-US"));
             //-- Sunset today's time
             const sunset = data.sys.sunset;
             var myDate = new Date(1000*sunset);
-            console.log(myDate.toLocaleTimeString("en-US"));
+            // console.log(myDate.toLocaleTimeString("en-US"));
 
             //Todays Fahrenheit
             $("#todaysFahrenheit").html(Math.round(data.main.temp));
