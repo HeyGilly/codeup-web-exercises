@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <meta name="creator" content="Nicholas 'Gilly' Gilmore">
+        <meta name="Weather App" content="Weather API">
+        <meta name="description"
+              content=" Using HTML, CSS,Bootstrap, jQuery, AJAX, and the OpenWeatherMap API,to create a weather map of your location ">
+       <!--Favicon -->
+        <link rel="icon" type="image/x-icon" href="img/favicon.png">
+        <!-- Mapbox CSS -->
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+        <!-- Personal StyleSheet -->
+        <link href="css/weather_map.css" type="text/css" rel="stylesheet">
+        <!--Font Awesome -->
+        <script src="https://kit.fontawesome.com/5d0c1b436d.js" crossorigin="anonymous"></script>
+        <!--BootStrap css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <!-- Title of Page -->
+        <title>Weather Map</title>
+
+
+
+    </head>
+    <body>
+
+        <header id="timeAndDate" class="text-center pb-5">
+                <div id="todaysTime" class="">00:00</div>
+                <span class="smalldates mr-3" id="dateDay">day</span> |
+                <span class="smalldates ml-3" id="dateDate">date</span>
+        </header>
+
+
+
+
+    </body>
+    <!-- Personal CheatCODES -->
+    <script src="js/keys.js"></script>
+    <script>
+        $.get("http://api.openweathermap.org/data/2.5/onecall", {
+            APPID: Weather_Token,
+            lat:    29.423017,
+            lon:   -98.48527,
+            units: "imperial",
+            lang: "en"
+        }).done(function(data) {
+            console.log( data);
+
+            //Todays Time in Military
+            displayTime();
+
+        });
+
+function displayTime(){
+    //Todays Time in Military
+    var today = new Date();
+    var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+    var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    $('#todaysTime').html(hours + ":" + minutes);
+    // Today's Day
+    const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    $('#dateDay').html(weekdays[today.getDay()]);
+    //
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
+}
+function mainBase(e){
+    e.preventDefault();
+
+}
+    </script>
+    <!-- Boostrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <!-- Personal Js for Weather data placement -->
+
+
+</html>
