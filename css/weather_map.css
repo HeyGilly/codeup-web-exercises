@@ -20,3 +20,27 @@ body{
     font-size: 18px;
     letter-spacing: 3px;
 }
+/*SearchBar*/
+#searchCity{
+    height: 40px;
+    background-color: rgba(252, 248, 248, 0.58);
+    color: #1e1e1e;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid black;
+    box-shadow: 0 2px 3px black;
+}
+/*Magnify icon*/
+.fa-magnifying-glass-location{
+    color: rgba(255, 255, 255, 0.76);
+    height: 30px;
+    font-size: 24px;
+    border: 1px solid #1e1e1e;
+    border-radius: 0 8px 8px 0;
+    background-color: #C581A5;
+    box-shadow: 0 2px 2px black;
+}
+/*Magnify icon hovered*/
+.fa-magnifying-glass-location:hover{
+    color: #C581A5;
+    background-color: rgba(255, 255, 255, 0.76);
+}
