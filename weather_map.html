@@ -35,21 +35,25 @@
 
         <div class="formContainer d-flex justify-content-center py-5">
             <input id="searchCity" class="w-50 pl-5 text-capitalize rounded-left" type="text" placeholder="Search City..">
-            <button type="btn" class="border-0 bg-transparent searchButton"><i
-                    class="fa-solid fa-magnifying-glass-location p-2 rounded-right"></i></button>
+            <button type="btn" class="border-0 bg-transparent searchButton"><i class="fa-solid fa-magnifying-glass-location p-2 rounded-right"></i></button>
         </div>
 
         <main class="mainContainer mx-auto rounded h-auto border-0">
-            <h2 id="cityName" class="pl-4 pt-4">CityName</h2>
-<!--            <span> <p id="todaysFahrenheit"></p>&#x2109;</span>-->
-<!--            <img id="wicon" src="" alt="Weather icon">-->
-<!--            <p class="highest">High</p><p class="lowest">low</p>-->
-<!--            <p id="mainDescription"> describe</p>-->
-<!--            <p id="humidity">Humidity</p>-->
+            <section>
+                <h2 id="cityName" class="pl-4 pt-4">CityName</h2>
+                <span class="d-flex"><p id="todaysFahrenheit">00</p>&#x2109;</span>
+                <span class="d-flex"><p class="highest pr-1">High</p><p class="lowest pl-1">low</p></span>
+                <p id="mainDescription"> describe</p>
+                <p id="humidity">Humidity</p>
+            </section>
+            <section>
+                <img id="wicon" src="" alt="Weather icon">
+            </section>
+
         </main>
 
 
-        <div id='map' class="mx-auto pt-5"></div>
+        <div id='map' class="mx-auto pt-5 rounded"></div>
 
 
     </body>
@@ -72,9 +76,59 @@
             lang: "en"
         }).done(function(data) {
             console.log( data);
+            console.log( );
 
             //Todays Time in Military
             displayTime();
+
+            mapboxgl.accessToken = MapBox_Token;
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/light-v10',
+                zoom: 10,
+                center: [-98.4936282, 29.4241219]
+            });
+
+            // reverse geocode method for the Heading 2
+            reverseGeocode({lng: data.lon , lat: data.lat}, MapBox_Token).then(function(results) {
+                //-- From the start of the show, this will show San Antonio
+                $('h2').html(results.substring(0,12))
+            });
+
+            //----- When a button is clicked map will change and title will change
+            $(".searchButton").click(function (e) {
+                e.preventDefault;
+                let x = document.getElementById("searchCity").value;
+                //-- This will change the heading 2 with the value
+                $('h2').html(x);
+                geocode(x, MapBox_Token).then(function(result) {
+                    map.setCenter(result);
+                    map.setZoom(10);
+                    map.setStyle('mapbox://styles/mapbox/dark-v10');
+                    console.log(result)
+                    //--- Makes a maker when clicked
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(result)
+                        .addTo(map);
+                });
+            });
+
+            //-- Current Weahter Fahrenheit
+            console.log(Math.round(data.current.temp));
+            $('#todaysFahrenheit').html(Math.round(data.current.temp));
+
+
+            //-- Sunset today's time
+            const sunset = data.current.sunset;
+            var myDate = new Date(1000*sunset);
+            console.log(myDate.toLocaleTimeString("en-US"));
+            //-- Sunset today's time
+            const sunrise = data.current.sunrise;
+            var myDate = new Date(1000*sunrise);
+            console.log(myDate.toLocaleTimeString("en-US"));
+
+
+
 
         });
 
@@ -93,23 +147,6 @@
         }
     </script>
     <!-- MapBox Script ----->
-    <script>
-        mapboxgl.accessToken = MapBox_Token;
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/light-v10',
-            zoom: 10,
-            center: [-98.4916, 29.4252]
-        });
-
-        // reverse geocode method for the Heading 2
-        reverseGeocode({lng: -98.4861, lat: 29.4260}, MapBox_Token).then(function(results) {
-            // logs the address for The Alamo
-            console.log(results.slice(38, 57));
-            $('h2').html(results.slice(38, 57))
-        });
-
-
 
 
 
