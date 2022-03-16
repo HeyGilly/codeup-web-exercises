@@ -11,8 +11,6 @@
         <link rel="icon" type="image/x-icon" href="img/favicon.png">
         <!-- Mapbox CSS -->
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-        <!-- Personal StyleSheet -->
-        <link href="css/weather_map.css" type="text/css" rel="stylesheet">
         <!--Font Awesome -->
         <script src="https://kit.fontawesome.com/5d0c1b436d.js" crossorigin="anonymous"></script>
         <!--BootStrap css -->
@@ -21,33 +19,40 @@
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!-- Title of Page -->
         <title>Weather Map</title>
+        <!-- Personal StyleSheet -->
+        <link href="css/weather_map.css" type="text/css" rel="stylesheet">
 
 
 
     </head>
     <body>
-
-        <header id="timeAndDate" class="text-center pb-5">
+        <!--   Display of Time and Date      -->
+        <header id="timeAndDate" class="text-center pb-3">
                 <div id="todaysTime" class="">00:00</div>
                 <span class="smalldates mr-3" id="dateDay">day</span> |
                 <span class="smalldates ml-3" id="dateDate">date</span>
         </header>
 
+        <!--   Input    -->
         <div class="formContainer d-flex justify-content-center py-5">
             <input id="searchCity" class="w-50 pl-5 text-capitalize rounded-left" type="text" placeholder="Search City..">
             <button type="btn" class="border-0 bg-transparent searchButton"><i class="fa-solid fa-magnifying-glass-location p-2 rounded-right"></i></button>
         </div>
 
-        <main class="mainContainer mx-auto rounded h-auto border-0">
-            <section>
-                <h2 id="cityName" class="pl-4 pt-4">CityName</h2>
-                <span class="d-flex"><p id="todaysFahrenheit">00</p>&#x2109;</span>
-                <span class="d-flex"><p class="highest pr-1">High</p><p class="lowest pl-1">low</p></span>
-                <p id="mainDescription"> describe</p>
-                <p id="humidity">Humidity</p>
+        <!--   Main Content  -->
+        <main class="mainContainer mx-auto rounded h-auto border-0 d-flex flex-row">
+            <section class="w-50 text-center">
+                <h2 id="cityName" class=" pt-4">CityName</h2>
+                <span class="d-flex justify-content-center"><p id="todaysFahrenheit" class="p-0 m-0">00
+                </p>&#x2109;
+                </span>
+                <span class="d-flex  justify-content-center "><p class="highest pr-2 m-0">High</p><p
+                        class="lowest pl-2 m-0">low</p></span>
+                <p id="mainDescription" class=" text-capitalize mb-0"> describe</p>
+                <p id="humidity" class="">Humidity</p>
             </section>
-            <section>
-                <img id="wicon" src="" alt="Weather icon">
+            <section class="w-50 d-flex justify-content-center align-items-center ">
+                <img id="wicon" src="" class="" alt="Weather icon">
             </section>
 
         </main>
@@ -66,6 +71,18 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Mapbox Geocoder Util Methods -->
     <script src="js/mapbox-geocoder-utils.js"></script>
+    <!--  Map  -->
+    <script>
+        //--- Personal Token for MapBox
+        mapboxgl.accessToken = MapBox_Token;
+        //--- Map
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            zoom: 10,
+            center: [-98.4936282, 29.4241219]
+        });
+    </script>
     <!-- Weather data placement -->
     <script>
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
@@ -73,86 +90,89 @@
             lat:    29.423017,
             lon:   -98.48527,
             units: "imperial",
-            lang: "en"
+            lang: 'en'
         }).done(function(data) {
-            console.log( data);
-            console.log( );
+            console.log('The entire response:', data);
+            // console.log('Diving in - here is current information: ', data.current);
+            // console.log('A step further - information for tomorrow: ', data.daily[1]);
+            // reverse geocode method for the Heading 2
 
             //Todays Time in Military
             displayTime();
+            //Main Content - Opening Page
+            MainContent();
+            function MainContent(e){
+                //-- Current Weather Fahrenheit
+                $('#todaysFahrenheit').html(Math.round(data.current.temp));
+                //-- Description of the weather
+                console.log(data.current.weather[0].description)
+                $('#mainDescription').html(data.current.weather[0].description)
+                //-- Humidity
+                $('#humidity').html("Humidity: "+data.current.humidity+'%');
+                //---- High and Lowest Temps for Today
+                $('.highest').html("H: "+ Math.round(data.daily[0].temp.max)  + '&#x2109;');
+                $('.lowest').html("L: "+ Math.round(data.daily[0].temp.min)  + '&#x2109;');
+                //--- Showcase the icon for WeatherMap
+                const iconcode = data.current.weather[0].icon;
+                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                $('#wicon').attr('src', iconurl);
+            }
+            function displayTime(e){
+                //Todays Time in Military
+                var today = new Date();
+                var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+                var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+                $('#todaysTime').html(hours + ":" + minutes);
+                // Today's Day
+                const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                $('#dateDay').html(weekdays[today.getDay()]);
+                //
+                const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+                $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
+            }
 
-            mapboxgl.accessToken = MapBox_Token;
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/light-v10',
-                zoom: 10,
-                center: [-98.4936282, 29.4241219]
-            });
 
-            // reverse geocode method for the Heading 2
+
+
             reverseGeocode({lng: data.lon , lat: data.lat}, MapBox_Token).then(function(results) {
                 //-- From the start of the show, this will show San Antonio
                 $('h2').html(results.substring(0,12))
+                // console.log(results);
+                // let newResult = results.match(x);
+                console.log(results);
             });
 
-            //----- When a button is clicked map will change and title will change
-            $(".searchButton").click(function (e) {
-                e.preventDefault;
-                let x = document.getElementById("searchCity").value;
-                //-- This will change the heading 2 with the value
-                $('h2').html(x);
-                geocode(x, MapBox_Token).then(function(result) {
-                    map.setCenter(result);
-                    map.setZoom(10);
-                    map.setStyle('mapbox://styles/mapbox/dark-v10');
-                    console.log(result)
-                    //--- Makes a maker when clicked
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat(result)
-                        .addTo(map);
+
+        //-----  Button Pushed gets long, lat and then adds it to the data
+        $(".searchButton").click(function (e) {
+            e.preventDefault;
+            let x = document.getElementById("searchCity").value;
+
+            //--- Turns your input into Long & Lad
+            geocode(x, MapBox_Token).then(function(result) {
+                map.setCenter(result);
+                map.setZoom(12);
+                map.setStyle('mapbox://styles/mapbox/dark-v10');
+                //--- Makes a maker when clicked
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(result)
+                    .addTo(map);
+                console.log(result)
+
+                reverseGeocode({lng: result[0] , lat: result[1]}, MapBox_Token).then(function(results) {
+                    //-- From the start of the show, this will show San Antonio
+                    $('h2').html(results.substring(0,12))
+                    // console.log(results);
+                    let newResult = results.match(x);
+                    console.log(newResult[0]);
+                    console.log(results);
                 });
             });
 
-            //-- Current Weahter Fahrenheit
-            console.log(Math.round(data.current.temp));
-            $('#todaysFahrenheit').html(Math.round(data.current.temp));
-
-
-            //-- Sunset today's time
-            const sunset = data.current.sunset;
-            var myDate = new Date(1000*sunset);
-            console.log(myDate.toLocaleTimeString("en-US"));
-            //-- Sunset today's time
-            const sunrise = data.current.sunrise;
-            var myDate = new Date(1000*sunrise);
-            console.log(myDate.toLocaleTimeString("en-US"));
-
-
-
-
+        });
         });
 
-        function displayTime(){
-            //Todays Time in Military
-            var today = new Date();
-            var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
-            var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
-            $('#todaysTime').html(hours + ":" + minutes);
-            // Today's Day
-            const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            $('#dateDay').html(weekdays[today.getDay()]);
-            //
-            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-            $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
-        }
-    </script>
-    <!-- MapBox Script ----->
-
-
-
-
 
 
     </script>
-
 </html>

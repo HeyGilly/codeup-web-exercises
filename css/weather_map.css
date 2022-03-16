@@ -51,10 +51,10 @@ body{
 
 .mainContainer{
     background-color: rgba(252, 248, 248, 0.19);
-    min-width: 240px;
+    min-width: 340px;
     width: 85vw;
-    height: fit-content;
     max-width: 620px;
+    height: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;    border: 3px solid #1e1e1e;
 }
 #cityName{
@@ -62,9 +62,25 @@ body{
     color: rgba(30, 30, 30, 0.75);
     font-weight: 500;
     letter-spacing: 1px;
-}#map {
-     min-width: 240px;
-     width: 85vw;
-     height: 420px;
+}
+#todaysFahrenheit{
+    font-size: 48px;
+}
+.wow{
+    border: 1px solid red;
+}
+img{
+    mix-blend-mode: luminosity;
+    filter: contrast(1.20);
+    min-width: 180px;
+    height: auto;
+}
 
+/*------ Map Section -------*/
+#map {
+    min-width: 340px;
+     width: 85vw;
+    max-width: 620px;
+
+    height: 420px;
  }
