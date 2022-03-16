@@ -71,23 +71,64 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Mapbox Geocoder Util Methods -->
     <script src="js/mapbox-geocoder-utils.js"></script>
-    <script>
-        //--- Time and Date
-        function displayTime(e){
-            //Todays Local Time in Military
-            var today = new Date();
-            var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
-            var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
-            $('#todaysTime').html(hours + ":" + minutes);
-            // Today's Day
-            const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            $('#dateDay').html(weekdays[today.getDay()]);
-            //
-            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-            $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
-        }
-    displayTime();
-    </script>
+
+   <script>
+       //--- Time and Date
+       function displayTime(e){
+           //Todays Local Time in Military
+           var today = new Date();
+           var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+           var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+           $('#todaysTime').html(hours + ":" + minutes);
+           // Today's Day
+           const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+           $('#dateDay').html(weekdays[today.getDay()]);
+           //Today's Date
+           const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+           $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
+       }
+       displayTime();
+
+       //--- Content for the Home Page
+       function HomePageContent(){
+           $.get("http://api.openweathermap.org/data/2.5/onecall", {
+               APPID: Weather_Token,
+               lat:    29.423017,
+               lon:   -98.48527,
+               units: "imperial"
+           }).done(function(data) {
+               console.log('The entire response:', data);
+               MainContent();
+               function MainContent(e){
+                   //-- Current Weather Fahrenheit
+                   $('#todaysFahrenheit').html(Math.round(data.current.temp));
+                   //-- Description of the weather
+                   console.log(data.current.weather[0].description)
+                   $('#mainDescription').html(data.current.weather[0].description)
+                   //-- Humidity
+                   $('#humidity').html("Humidity: "+data.current.humidity+'%');
+                   //---- High and Lowest Temps for Today
+                   $('.highest').html("H: "+ Math.round(data.daily[0].temp.max)  + '&#x2109;');
+                   $('.lowest').html("L: "+ Math.round(data.daily[0].temp.min)  + '&#x2109;');
+                   //--- Showcase the icon for WeatherMap
+                   const iconcode = data.current.weather[0].icon;
+                   var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                   $('#wicon').attr('src', iconurl);
+               }
+               reverseGeocode({lng: data.lon, lat: data.lat}, MapBox_Token).then(function (results) {
+                   //-- From the start of the show, this will show San Antonio
+                   $('h2').html(results.match("San Antonio"))
+               });
+           });
+       }
+       HomePageContent();
+
+
+
+
+
+
+   </script>
 
 
 
