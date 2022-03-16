@@ -71,108 +71,26 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Mapbox Geocoder Util Methods -->
     <script src="js/mapbox-geocoder-utils.js"></script>
-    <!--  Map  -->
     <script>
-        //--- Personal Token for MapBox
-        mapboxgl.accessToken = MapBox_Token;
-        //--- Map
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/light-v10',
-            zoom: 10,
-            center: [-98.4936282, 29.4241219]
-        });
+        //--- Time and Date
+        function displayTime(e){
+            //Todays Local Time in Military
+            var today = new Date();
+            var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+            var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+            $('#todaysTime').html(hours + ":" + minutes);
+            // Today's Day
+            const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            $('#dateDay').html(weekdays[today.getDay()]);
+            //
+            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
+        }
+    displayTime();
     </script>
-    <!-- Weather data placement -->
-    <script>
-        $.get("http://api.openweathermap.org/data/2.5/onecall", {
-            APPID: Weather_Token,
-            lat:    29.423017,
-            lon:   -98.48527,
-            units: "imperial",
-            lang: 'en'
-        }).done(function(data) {
-            console.log('The entire response:', data);
-            // console.log('Diving in - here is current information: ', data.current);
-            // console.log('A step further - information for tomorrow: ', data.daily[1]);
-            // reverse geocode method for the Heading 2
-
-            //Todays Time in Military
-            displayTime();
-            //Main Content - Opening Page
-            MainContent();
-            function MainContent(e){
-                //-- Current Weather Fahrenheit
-                $('#todaysFahrenheit').html(Math.round(data.current.temp));
-                //-- Description of the weather
-                console.log(data.current.weather[0].description)
-                $('#mainDescription').html(data.current.weather[0].description)
-                //-- Humidity
-                $('#humidity').html("Humidity: "+data.current.humidity+'%');
-                //---- High and Lowest Temps for Today
-                $('.highest').html("H: "+ Math.round(data.daily[0].temp.max)  + '&#x2109;');
-                $('.lowest').html("L: "+ Math.round(data.daily[0].temp.min)  + '&#x2109;');
-                //--- Showcase the icon for WeatherMap
-                const iconcode = data.current.weather[0].icon;
-                var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-                $('#wicon').attr('src', iconurl);
-            }
-            function displayTime(e){
-                //Todays Time in Military
-                var today = new Date();
-                var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
-                var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
-                $('#todaysTime').html(hours + ":" + minutes);
-                // Today's Day
-                const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-                $('#dateDay').html(weekdays[today.getDay()]);
-                //
-                const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-                $('#dateDate').html(months[today.getMonth()] + ' ' +today.getUTCDate());
-            }
 
 
 
 
-            reverseGeocode({lng: data.lon , lat: data.lat}, MapBox_Token).then(function(results) {
-                //-- From the start of the show, this will show San Antonio
-                $('h2').html(results.substring(0,12))
-                // console.log(results);
-                // let newResult = results.match(x);
-                console.log(results);
-            });
 
-
-        //-----  Button Pushed gets long, lat and then adds it to the data
-        $(".searchButton").click(function (e) {
-            e.preventDefault;
-            let x = document.getElementById("searchCity").value;
-
-            //--- Turns your input into Long & Lad
-            geocode(x, MapBox_Token).then(function(result) {
-                map.setCenter(result);
-                map.setZoom(12);
-                map.setStyle('mapbox://styles/mapbox/dark-v10');
-                //--- Makes a maker when clicked
-                var marker = new mapboxgl.Marker()
-                    .setLngLat(result)
-                    .addTo(map);
-                console.log(result)
-
-                reverseGeocode({lng: result[0] , lat: result[1]}, MapBox_Token).then(function(results) {
-                    //-- From the start of the show, this will show San Antonio
-                    $('h2').html(results.substring(0,12))
-                    // console.log(results);
-                    let newResult = results.match(x);
-                    console.log(newResult[0]);
-                    console.log(results);
-                });
-            });
-
-        });
-        });
-
-
-
-    </script>
 </html>

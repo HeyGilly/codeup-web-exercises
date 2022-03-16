@@ -70,8 +70,8 @@ body{
     border: 1px solid red;
 }
 img{
-    mix-blend-mode: luminosity;
-    filter: contrast(1.20);
+    /*mix-blend-mode: luminosity;*/
+    filter: contrast(5);
     min-width: 180px;
     height: auto;
 }
@@ -81,6 +81,5 @@ img{
     min-width: 340px;
      width: 85vw;
     max-width: 620px;
-
     height: 420px;
  }
