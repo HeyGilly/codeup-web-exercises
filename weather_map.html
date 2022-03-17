@@ -27,7 +27,7 @@
     </head>
     <body class="b-block">
         <!--   Display of Time and Date      -->
-        <header id="timeAndDate" class="text-center pb-3">
+        <header id="timeAndDate" class="text-center py-3 ">
                 <div id="todaysTime" class="">00:00</div>
                 <span class="smalldates mr-3" id="dateDay">day</span> |
                 <span class="smalldates ml-3" id="dateDate">date</span>
@@ -168,10 +168,10 @@
                        var iconurl = "http://openweathermap.org/img/w/" + iconcode4 + ".png";
                        $("#smallIcon4").attr('src', iconurl);
 
-                       $("#smallDescribe1").html(data.daily[1].weather[0].description);
-                       $("#smallDescribe2").html(data.daily[2].weather[0].description);
-                       $("#smallDescribe3").html(data.daily[3].weather[0].description);
-                       $("#smallDescribe4").html(data.daily[4].weather[0].description);
+                       $("#smallDescribe1").html(data.daily[1].weather[0].main);
+                       $("#smallDescribe2").html(data.daily[2].weather[0].main);
+                       $("#smallDescribe3").html(data.daily[3].weather[0].main);
+                       $("#smallDescribe4").html(data.daily[4].weather[0].main);
 
                        $("#smallHumidity1").html('Humid: '+ data.daily[1].humidity +"%");
                        $("#smallHumidity2").html('Humid: '+ data.daily[2].humidity +"%");
@@ -198,12 +198,7 @@
            }).done(function (data) {
                // console.log('The entire response:', data);
                console.log(data)
-               reverseGeocode({lng: data.lon, lat: data.lat}, MapBox_Token).then(function (results) {
-                   //-- From the start of the show, this will show San Antonio
-                   var wow =results
-                   console.log(wow);
-                   $('h2').html(wow)
-               });
+
                MainContent();
                function MainContent(e) {
                    //-- Current Weather Fahrenheit
@@ -221,6 +216,42 @@
                    var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
                    $('#wicon').attr('src', iconurl);
                }
+               function smallIcone(){
+                   //---- Days of the Week
+                   const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                   var today = new Date();
+                   $('#smallDay1').html(weekdays[today.getDay() + 1]);
+                   $('#smallDay2').html(weekdays[today.getDay() + 2]);
+                   $('#smallDay3').html(weekdays[today.getDay() + 3]);
+                   $('#smallDay4').html(weekdays[today.getDay() + (-3)]);
+                   //--- Small 1st IMG
+                   const iconcode1 = data.daily[1].weather[0].icon;
+                   var iconurl = "http://openweathermap.org/img/w/" + iconcode1 + ".png";
+                   $("#smallIcon1").attr('src', iconurl);
+                   //--- Small 2st IMG
+                   const iconcode2 = data.daily[2].weather[0].icon;
+                   var iconurl = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
+                   $("#smallIcon2").attr('src', iconurl);
+                   //--- Small 3st IMG
+                   const iconcode3 = data.daily[3].weather[0].icon;
+                   var iconurl = "http://openweathermap.org/img/w/" + iconcode3 + ".png";
+                   $("#smallIcon3").attr('src', iconurl);
+                   //--- Small 4st IMG
+                   const iconcode4 = data.daily[4].weather[0].icon;
+                   var iconurl = "http://openweathermap.org/img/w/" + iconcode4 + ".png";
+                   $("#smallIcon4").attr('src', iconurl);
+
+                   $("#smallDescribe1").html(data.daily[1].weather[0].main);
+                   $("#smallDescribe2").html(data.daily[2].weather[0].main);
+                   $("#smallDescribe3").html(data.daily[3].weather[0].main);
+                   $("#smallDescribe4").html(data.daily[4].weather[0].main);
+
+                   $("#smallHumidity1").html('Humid: '+ data.daily[1].humidity +"%");
+                   $("#smallHumidity2").html('Humid: '+ data.daily[2].humidity +"%");
+                   $("#smallHumidity3").html('Humid: '+ data.daily[3].humidity +"%");
+                   $("#smallHumidity4").html('Humid: '+ data.daily[4].humidity +"%");
+               }
+               smallIcone();
            })
        };
        //--- Personal Token for MapBox
@@ -242,6 +273,7 @@
        $(".searchButton").click(function (e) {
            e.preventDefault;
            let x = document.getElementById("searchCity").value;
+           $('h2').html(x);
            //--- Turns your input into Long & Lad\
            var z;
            var y;
@@ -257,6 +289,7 @@
                z=result[0];
                y=result[1];
                updatedWeather(z, y)
+
            });
        });
    </script>

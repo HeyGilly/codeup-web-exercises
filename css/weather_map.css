@@ -4,14 +4,14 @@ body{
     box-sizing: border-box;
     background: linear-gradient(45deg, #1E92CE 0%, #C581A5 100%);
     width: auto;
-    height: 100vh;
+    height: 100%;
     /*font-family: 'Roboto', sans-serif; !important;*/
 }
 
 /*Display Time*/
 #todaysTime{
     font-size: 72px;
-    padding-top: 50px;
+
     /*text-shadow: 2px 2px 5px black;       !*    Save for Degree *!*/
     font-weight: 300;
 }
