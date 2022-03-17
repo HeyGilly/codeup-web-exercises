@@ -63,15 +63,11 @@ body{
 }
 #todaysFahrenheit{
     font-size: 48px;
-    text-shadow: 2px 2px 5px black;       /*    Save for Degree */
-
 }
 .wow{
     border: 1px solid red;
 }
 img{
-    mix-blend-mode: luminosity;
-    filter: contrast(0);
     min-width: 180px;
     width: 20vw;
     max-width: 220px;
