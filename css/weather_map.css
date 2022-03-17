@@ -12,8 +12,7 @@ body{
 /*Display Time*/
 #todaysTime{
     font-size: 72px;
-
-    /*text-shadow: 2px 2px 5px black;       !*    Save for Degree *!*/
+    text-shadow: 2px 2px 5px black;       /*    Save for Degree */
     font-weight: 300;
 }
 /*Day and Date*/
@@ -36,7 +35,6 @@ body{
     height: 22px;
     font-size: 24px;
     border: 2px solid #1e1e1e;
-    /*border-radius: 0 8px 8px 0;*/
     background-color: #C581A5;
     box-shadow: 0 2px 2px #1e1e1e;
 }
@@ -65,6 +63,8 @@ body{
 }
 #todaysFahrenheit{
     font-size: 48px;
+    text-shadow: 2px 2px 5px black;       /*    Save for Degree */
+
 }
 .wow{
     border: 1px solid red;
@@ -90,7 +90,7 @@ aside{
     box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;    border: 3px solid #1e1e1e;
 }
 #smallIcon1, #smallIcon2, #smallIcon3, #smallIcon4{
-    /*mix-blend-mode: luminosity;*/
+    mix-blend-mode: luminosity;
     filter: contrast(5);
     min-width: 50px;
     height: auto;
@@ -115,12 +115,19 @@ aside{
 
 
 @media screen and (min-width: 992px) {
-   #map,aside,#MAINcontainer,#smallIcon1, #smallIcon2, #smallIcon3, #smallIcon4{
+   #map,aside,#MAINcontainer,#smallIcon1, #smallIcon2, #smallIcon3, #smallIcon4,#cityName,#wicon{
        all: unset;
    }
     #map{
         height: 550px;
         width: 340px;
+    }
+#cityName{
+    font-size: 28px;
+}
+   #wicon{
+        width: 220px;
+        height: auto;
     }
 
     #MAINcontainer{
