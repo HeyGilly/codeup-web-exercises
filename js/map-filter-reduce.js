@@ -36,4 +36,12 @@ const users = [
     }
 ];
 
-console.log('hello world!');
+
+
+//--- #Exercise 2: Use .filter to create an array of user objects where each user object has at least 3 languages in the
+// languages array.
+let arr = Object.keys(users).filter((k) => users[k].languages.length < 3 ? users[k].languages.push('python'): users[k].languages);
+console.log(users);
+
+
+
