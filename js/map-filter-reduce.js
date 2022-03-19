@@ -40,8 +40,15 @@ const users = [
 
 //--- #Exercise 2: Use .filter to create an array of user objects where each user object has at least 3 languages in the
 // languages array.
-let arr = Object.keys(users).filter((k) => users[k].languages.length < 3 ? users[k].languages.push('python'): users[k].languages);
+let wow = Object.keys(users).filter((k) => users[k].languages.length < 3 ? users[k].languages.push('python'): users[k].languages);
 console.log(users);
 
 
+//--- #Exercise 3: Use .reduce to get the total years of experience from the list of users.
+//                  Once you get the total of years you can use the result to calculate the average.
 
+let average = users.reduce((sum,value) => {
+    return sum + value.yearsOfExperience / users.length;
+}, 0) ;
+
+console.log(average);
