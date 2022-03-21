@@ -7,7 +7,12 @@
     <meta name="subject" content="Subject">
     <meta name="description" content=" desscription ">
     <title>Title</title>
+    <style>
+        .mapboxgl-ctrl{
+            opacity: 0;
+        }
 
+    </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -28,7 +33,7 @@
 <!-- X.Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best
         viewing distance.-->
 <!-- X. Create a popup with the name of the restaurant.-->
-<!-- 7. Make sure the info window does not display until the marker has been clicked on.-->
+<!-- X. Make sure the info window does not display until the marker has been clicked on.-->
 <!-- 8. Refactor your code to display at least three of your favorite restaurants with information about each. Create an
         array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.-->
 
@@ -41,15 +46,12 @@
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script>
-
-
-
             mapboxgl.accessToken = MapBox_Token;
             const map = new mapboxgl.Map({
                 container: 'map', // container ID
                 style: 'mapbox://styles/mapbox/streets-v11', // style URL
                 center: [-118.240000, 34.073611], // starting position [lng, lat]
-                zoom: 14 // starting zoom
+                zoom: 11.5 // starting zoom
             });
             const marker1 = new mapboxgl.Marker({
                 color: "royalblue",
@@ -58,6 +60,15 @@
                 .addTo(map)
                 .setPopup(new mapboxgl.Popup().setHTML("<h1>Dodgers Stadium</h1>"))
 
+            const marker2 = new mapboxgl.Marker({ color: 'red'})
+                .setLngLat([-118.257930, 34.050120])
+                .addTo(map)
+            .setPopup(new mapboxgl.Popup().setHTML("<h1>Takami Sushi and Robata</h1>"))
+
+            const marker3 = new mapboxgl.Marker({ color: 'green'})
+                .setLngLat([-118.237312, 34.062000])
+                .addTo(map)
+            .setPopup(new mapboxgl.Popup().setHTML("<h1>Won Kok Restaurant</h1>"))
 
 </script>
 
