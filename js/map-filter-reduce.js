@@ -41,7 +41,7 @@ const users = [
 //--- #Exercise 3: Use .filter to create an array of user objects where each user object has at least 3 languages in the
 // languages array.
 let wow = Object.keys(users).filter((k) => users[k].languages.length < 3 ? users[k].languages.push('python'): users[k].languages);
-// console.log(users);
+console.log(users);
 
 
 //--- #Exercise 4: Use .reduce to get the total years of experience from the list of users.
@@ -50,3 +50,13 @@ let average = users.reduce((sum,value) => {
     return sum + value.yearsOfExperience / users.length;
 }, 0) ;
 console.log(average);
+
+//--- #Exercise 4: Use .reduce to get the longest email from the list of users.
+var Counts = users.reduce(function(num, user){
+    let emails = num + user.email;
+    // console.log( emails);
+     return emails;
+
+},0);
+
+console.log(Counts);
