@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta charset="utf-8">
     <meta name="creator" content="Nicholas 'Gilly' Gilmore">
     <meta name="subject" content="Subject">
     <meta name="description" content=" desscription ">
     <title>Title</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
 
@@ -18,12 +22,12 @@
 <!-- X. Generate a Mapbox API Key using the steps from above-->
 <!-- X. Create a new file named mapbox_maps_api.html and add a map using the next steps.-->
 <!-- X. Generate a map that shows the city with your favorite restaurant using geocoding.-->
-<!-- 4. Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom
+<!-- X. Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom
         level where the map properties are initially set and refresh the page to see the changes.
         Can the zoom be changed programmatically after the initial map is drawn?-->
-<!-- 5.Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best
+<!-- X.Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best
         viewing distance.-->
-<!-- 6. Create a popup with the name of the restaurant.-->
+<!-- X. Create a popup with the name of the restaurant.-->
 <!-- 7. Make sure the info window does not display until the marker has been clicked on.-->
 <!-- 8. Refactor your code to display at least three of your favorite restaurants with information about each. Create an
         array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.-->
@@ -37,21 +41,23 @@
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script>
-    mapboxgl.accessToken = MapBox_Token;
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/light-v10', // style URL
-        center: [-74.5, 40], // starting position [lng, lat]
-        zoom: 10 // starting zoom
-    });
 
-    // the  geocode method from mapbox-geocoder-utils.js
-    //  DODGERS STADIUM
-    geocode("1000 Elysian Park Avenue Los Angeles, CA 90012-1199 USA", MapBox_Token).then(function(result) {
-        console.log(result);
-        map.setCenter(result);
-        map.setZoom(10);
-    });
+
+
+            mapboxgl.accessToken = MapBox_Token;
+            const map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                center: [-118.240000, 34.073611], // starting position [lng, lat]
+                zoom: 14 // starting zoom
+            });
+            const marker1 = new mapboxgl.Marker({
+                color: "royalblue",
+                draggable: false
+            }).setLngLat([-118.240000, 34.073611])
+                .addTo(map)
+                .setPopup(new mapboxgl.Popup().setHTML("<h1>Dodgers Stadium</h1>"))
+
 
 </script>
 
