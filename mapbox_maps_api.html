@@ -6,13 +6,6 @@
     <meta name="creator" content="Nicholas 'Gilly' Gilmore">
     <meta name="subject" content="Subject">
     <meta name="description" content=" desscription ">
-    <!-- MapBox -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
-    <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
     <title>Title</title>
 </head>
 <body>
@@ -24,7 +17,7 @@
 
 <!-- X. Generate a Mapbox API Key using the steps from above-->
 <!-- X. Create a new file named mapbox_maps_api.html and add a map using the next steps.-->
-<!-- 3. Generate a map that shows the city with your favorite restaurant using geocoding.-->
+<!-- X. Generate a map that shows the city with your favorite restaurant using geocoding.-->
 <!-- 4. Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom
         level where the map properties are initially set and refresh the page to see the changes.
         Can the zoom be changed programmatically after the initial map is drawn?-->
@@ -37,18 +30,29 @@
 
 
 
-<!-- Boostrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!-- Map Box -->
 <script src="js/keys.js"></script>
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script>
     mapboxgl.accessToken = MapBox_Token;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/dark-v10', // style URL
-        center: [ -118.240784,34.073814], // starting position [lng, lat]
+        style: 'mapbox://styles/mapbox/light-v10', // style URL
+        center: [-74.5, 40], // starting position [lng, lat]
         zoom: 10 // starting zoom
     });
+
+    // the  geocode method from mapbox-geocoder-utils.js
+    //  DODGERS STADIUM
+    geocode("1000 Elysian Park Avenue Los Angeles, CA 90012-1199 USA", MapBox_Token).then(function(result) {
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(10);
+    });
+
 </script>
 
 
