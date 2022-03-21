@@ -19,6 +19,21 @@
 
 
 
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+<!-- X. Generate a Mapbox API Key using the steps from above-->
+<!-- X. Create a new file named mapbox_maps_api.html and add a map using the next steps.-->
+<!-- 3. Generate a map that shows the city with your favorite restaurant using geocoding.-->
+<!-- 4. Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom
+        level where the map properties are initially set and refresh the page to see the changes.
+        Can the zoom be changed programmatically after the initial map is drawn?-->
+<!-- 5.Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best
+        viewing distance.-->
+<!-- 6. Create a popup with the name of the restaurant.-->
+<!-- 7. Make sure the info window does not display until the marker has been clicked on.-->
+<!-- 8. Refactor your code to display at least three of your favorite restaurants with information about each. Create an
+        array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.-->
 
 
 
@@ -27,7 +42,13 @@
 <!-- Map Box -->
 <script src="js/keys.js"></script>
 <script>
-
+    mapboxgl.accessToken = MapBox_Token;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [ -118.240784,34.073814], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
 </script>
 
 
