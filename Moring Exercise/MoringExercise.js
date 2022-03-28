@@ -253,18 +253,56 @@
 
 //Create a function, addTwos, that takes in a array of integers and returns the sum of all 2s in the array. If no 2s
 // are in the array, return 0.
+//
+// Examples:
+//     var nums1 = [1, 2, 3, 4, 5];
+//     var nums2 = [2, 2, 3, 4, 5];
+//     var nums3 = [10, 0, -5, 4, 5];
+//     var nums4 = [2, 2, -5, 2, 2];
+//     var nums5 = [2, 2, 2, 2, 2];
+//
+//
+// console.log(addTwos(nums1)); // returns 2
+// addTwos(nums2) // returns 4
+// addTwos(nums3) // returns 0
+// addTwos(nums4) // returns 8
+// addTwos(nums5) // returns 10
 
-Examples:
-    var nums1 = [1, 2, 3, 4, 5];
-    var nums2 = [2, 2, 3, 4, 5];
-    var nums3 = [10, 0, -5, 4, 5];
-    var nums4 = [2, 2, -5, 2, 2];
-    var nums5 = [2, 2, 2, 2, 2];
 
 
-console.log(addTwos(nums1)); // returns 2
-addTwos(nums2) // returns 4
-addTwos(nums3) // returns 0
-addTwos(nums4) // returns 8
-addTwos(nums5) // returns 10
 
+//------- March 28, 22- Monday
+// Create a function, encodeStr, that takes in a string and returns the string of characters with the following substitutions:
+//     ‘a’ or ‘A’ becomes ‘@’
+// ‘i’ or ‘I’ becomes ‘1’
+// ‘s’ or ‘S’ becomse ‘$’
+// encodeStr(‘apple’) // returns ‘@pple’
+// encodeStr(‘codeup’) // returns ‘codeup’
+// encodeStr(‘SASS’) // returns ‘$@$$’
+// encodeStr(‘bike’) // returns ‘b1ke’
+
+
+
+function encodeStr(e){
+
+    // return e.split('').map(char => {
+    //     if(char.toLowerCase() === 'a'){
+    //         return "@";
+    //     } else if (char.toLowerCase() === 's'){
+    //         return'$';
+    //     } else if (char.toLowerCase() === 'i'){
+    //         return 1;
+    //     }else {
+    //         return char;
+    //     }
+    // }).join('');
+    //
+    var lowercase = e.toLowerCase()
+
+    var newString = lowercase.replaceAll('a', '@').replaceAll('i', "1").replaceAll('s', '$');
+    console.log(newString);
+}
+encodeStr("Apple");
+encodeStr("codeup");
+encodeStr("SASS");
+encodeStr("bike");
